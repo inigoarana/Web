@@ -1,0 +1,155 @@
+.reserva-reveal-btn {
+  font: inherit;
+  margin: 0 0 1rem;
+}
+.reserva-form-panel[hidden] {
+  display: none;
+}
+
+.reserva-cal {
+  margin: 0.5rem 0 1rem;
+  border: none;
+  padding: 0;
+}
+.reserva-cal-fecha-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+}
+.reserva-fecha-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  flex: 0 0 auto;
+}
+.reserva-cal-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 12rem;
+}
+.reserva-cal-trigger {
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid #d6d3d1;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+.reserva-cal-trigger:hover {
+  border-color: #a8a29e;
+}
+.reserva-cal-panel {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  max-width: 20rem;
+  width: max(100%, 18rem);
+  padding: 0.65rem;
+  border: 1px solid #e7e5e4;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  z-index: 20;
+}
+.reserva-cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+.reserva-cal-head button {
+  font: inherit;
+  border: 1px solid #d6d3d1;
+  background: #fff;
+  border-radius: 6px;
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.reserva-cal-head button:hover { border-color: #a8a29e; }
+.reserva-cal-title {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin: 0;
+  text-transform: capitalize;
+}
+.reserva-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.2rem;
+}
+.reserva-cal-dow {
+  text-align: center;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #78716c;
+  padding: 0.1rem 0;
+}
+.reserva-cal-day {
+  min-height: 1.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #e7e5e4;
+  color: #1c1917;
+  padding: 0.15rem;
+}
+.reserva-cal-day:disabled {
+  cursor: default;
+  opacity: 0.35;
+  background: transparent;
+}
+.reserva-cal-day.is-empty { visibility: hidden; pointer-events: none; }
+.reserva-cal-day.is-closed {
+  background: #d4d4d4;
+  color: #737373;
+  cursor: not-allowed;
+}
+.reserva-cal-day.is-ok { background: #bbf7d0; color: #14532d; }
+.reserva-cal-day.is-low { background: #fed7aa; color: #9a3412; }
+.reserva-cal-day.is-full { background: #fecaca; color: #991b1b; }
+.reserva-cal-day.is-selected {
+  outline: 2px solid #1c1917;
+  outline-offset: 1px;
+}
+.reserva-cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.65rem;
+  margin-top: 0.5rem;
+  font-size: 0.65rem;
+  color: #57534e;
+}
+.reserva-cal-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.reserva-cal-legend i {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 3px;
+  display: inline-block;
+  font-style: normal;
+}
+.reserva-cal-legend .lg-closed i { background: #d4d4d4; }
+.reserva-cal-legend .lg-ok i { background: #bbf7d0; }
+.reserva-cal-legend .lg-low i { background: #fed7aa; }
+.reserva-cal-legend .lg-full i { background: #fecaca; }
