@@ -90,19 +90,19 @@ const LA_ALHONDIGA = {
   },
   faqItems: [
     {
-      q: "?Sois el edificio Alhondiga de Azkuna?",
+      q: "Sois el edificio Alhondiga de Azkuna?",
       a: "No. Estamos en General Salazar 3, restaurante independiente junto al parque peatonal de Indautxu.",
     },
     {
-      q: "?Hay terraza?",
+      q: "Hay terraza?",
       a: "Consultar disponibilidad por telefono - puede variar segun temporada.",
     },
     {
-      q: "?Como reservo?",
+      q: "Como reservo?",
       a: "Llamanos al 944 105 764 para confirmar mesa. Tambien puedes enviar una solicitud online y te confirmamos por telefono.",
     },
     {
-      q: "?El menu del dia cambia cada dia?",
+      q: "El menu del dia cambia cada dia?",
       a: "Si, la carta puede variar. Consulta la web o llamanos el mismo dia.",
     },
   ],
