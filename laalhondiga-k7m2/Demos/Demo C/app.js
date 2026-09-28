@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const d = LA_ALHONDIGA;
   const heroImg = document.getElementById("hero-img");
   heroImg.src = d.images.hero;
@@ -18,9 +18,9 @@
   const gallery = document.getElementById("gallery-grid");
   if (gallery && d.images) {
     const shots = [
-      { src: d.images.barra, label: "Barra", alt: "Detalle de barra y café" },
-      { src: d.images.interior || d.images.hero, label: "Ambiente", alt: "Salón del local" },
-      { src: d.images.terraza, label: "Estilo", alt: "Espacio contemporáneo" },
+      { src: d.images.barra, label: "Barra", alt: "Detalle de barra y cafe" },
+      { src: d.images.interior || d.images.hero, label: "Ambiente", alt: "Salon del local" },
+      { src: d.images.terraza, label: "Estilo", alt: "Espacio contemporaneo" },
     ];
     shots.forEach(({ src, label, alt }) => {
       const fig = document.createElement("figure");
