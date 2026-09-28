@@ -307,3 +307,11 @@ En **`/8-publicar-demos`**, cada negocio en el repo `Web` debe usar **dos carpet
 En **cada publicación**, sincronizar también **`_proyecto/`** en el mismo repo (fuera del slug): skills, rules, `operacion/feedback.md` y `Registro_Negocios.xlsx` — ver `config/publicar-demos.json` → `sync_proyecto`.
 
 Preview en GitHub: textos del slug **sin tildes** (ASCII) en portal, infografia y demos publicadas; expediente local puede llevar tildes.
+
+## 2026-09-28 · Publicar demos · datos JS y cache del navegador
+
+En **`shared/content.js`** (demos), evitar **comillas tipograficas** (`«»`) dentro de strings: usar **comillas simples ASCII** en el texto o redaccion sin comillas internas. La pasada ASCII para HTML puede convertir guillemets a `"` y **romper** el JS si el navegador aun sirve una version antigua cacheada.
+
+En cada **`/8-publicar-demos`**, anadir **`?v=`** (timestamp de build) a los `<script src="../shared/*.js">` de Demo A/B/C para forzar recarga de `content.js` tras correcciones. Portal cliente: **`{pages_base}/{slug}/index.html`** con **dos tarjetas**: Infografia + **Demos** (texto «Tres propuestas de web (A, B, C) y acceso a cada una» → comparador `Demos/`).
+
+Al publicar sin tildes en vocales, **mantener `¿` y `¡`** (FAQ y exclamaciones); no convertir a `?`/`!` al inicio de pregunta.
