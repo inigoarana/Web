@@ -1,4 +1,4 @@
-﻿/** Datos compartidos La Alhondiga - indh041 - demos A/B/C */
+/** Datos compartidos La Alhondiga - indh041 - demos A/B/C */
 const LA_ALHONDIGA = {
   brand: "La Alhondiga",
   tagline: "General Salazar 3 - Bilbao",
@@ -29,7 +29,7 @@ const LA_ALHONDIGA = {
     paragraphs: [
       "La Alhondiga es restaurante de mediodia y bar de barra: mesa puesta bajo arcos de piedra cuando suena la hora de comer, y pintxos cuando cae la tarde entre semana.",
       "No hace falta prometer moda pasajera: la propuesta visible es menu del dia con vino incluido en la tarifa anunciada y un mediodia de fin de semana mas amplio para quedarse.",
-      "Junto al parque peatonal de Indautxu, encaja en ese Bilbao de oficinas y paseo — luz sobre el mantel, conversacion sin prisas y la copa de crianza al lado del plato.",
+      "Junto al parque peatonal de Indautxu, encaja en ese Bilbao de oficinas y paseo - luz sobre el mantel, conversacion sin prisas y la copa de crianza al lado del plato.",
     ],
     sensorial:
       "Piedra vista, luz sobre mantel y el murmullo tranquilo del comedor al mediodia.",
@@ -39,7 +39,7 @@ const LA_ALHONDIGA = {
   servicios: ["Menu del dia", "Mediodia", "Celebraciones"],
   horarioReferencia: {
     filas: [
-      ["Lunes – viernes (comedor)", "Consultar por telefono"],
+      ["Lunes - viernes (comedor)", "Consultar por telefono"],
       ["Fin de semana (mediodia)", "Consultar por telefono"],
       ["Bar - pintxos entre semana", "Desde las 20:00"],
     ],
@@ -52,21 +52,21 @@ const LA_ALHONDIGA = {
     "Menu del dia entre semana y mediodia de fin de semana; carta completa en PDF.",
   storyHeading: "Mediodia bajo los arcos",
   deckLine:
-    "Restaurante en el corazon peatonal de Indautxu — menu del dia y salon de piedra.",
+    "Restaurante en el corazon peatonal de Indautxu - menu del dia y salon de piedra.",
   narrativeBandTitle: "Ritual de mediodia",
   narrativeBandText:
-    "Menu del dia, salon de piedra y el parque peatonal a un paso — la pausa clasica de Indautxu.",
+    "Menu del dia, salon de piedra y el parque peatonal a un paso - la pausa clasica de Indautxu.",
   cartaPdfUrl:
     "https://www.laalhondiga.es/app/download/5811466627/CARTA+ENTRE+SEMANA.pdf",
   cartaPdfLabel: "Ver carta (PDF)",
   cartaItems: [
     {
       name: "Menu del dia - lunes a viernes",
-      desc: "21,90 € - incluye crianza Rioja",
+      desc: "21,90  EUR - incluye crianza Rioja",
     },
     {
       name: "Mediodia - fin de semana",
-      desc: "32,90 € - crianza «Vino de Municipio» de Laguardia",
+      desc: "32,90  EUR - crianza "Vino de Municipio" de Laguardia",
     },
     {
       name: "Carta entre semana",
@@ -80,7 +80,7 @@ const LA_ALHONDIGA = {
   barBlock: {
     titulo: "Bar y pintxos",
     texto:
-      "Entre semana, a partir de las 20:00, pintxos a 1 €. Ambiente de barra despues del servicio de mediodia.",
+      "Entre semana, a partir de las 20:00, pintxos a 1  EUR. Ambiente de barra despues del servicio de mediodia.",
   },
   celebracionesBlock: {
     titulo: "Comuniones y celebraciones",
@@ -95,7 +95,7 @@ const LA_ALHONDIGA = {
     },
     {
       q: "?Hay terraza?",
-      a: "Consultar disponibilidad por telefono — puede variar segun temporada.",
+      a: "Consultar disponibilidad por telefono - puede variar segun temporada.",
     },
     {
       q: "?Como reservo?",
