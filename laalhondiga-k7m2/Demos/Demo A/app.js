@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   const d = LA_ALHONDIGA;
   const imgHero = document.getElementById("img-hero");
   imgHero.src = d.images.hero;
