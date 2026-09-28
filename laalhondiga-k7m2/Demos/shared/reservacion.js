@@ -1,6 +1,6 @@
-/**
- * Calendario de reserva (demo estática).
- * Huecos simulados por fecha; en producción vendrían del backend.
+﻿/**
+ * Calendario de reserva (demo estatica).
+ * Huecos simulados por fecha; en produccion vendrian del backend.
  * UI: panel compacto abierto solo al pulsar el icono de calendario.
  */
 const RESERVA_DOW = ["Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"];
@@ -24,7 +24,7 @@ function reservaGetPersonas(form) {
   return Number.isFinite(n) && n >= 1 ? n : 1;
 }
 
-/** Disponibilidad según plazas simuladas y número de personas (sin estado naranja). */
+/** Disponibilidad segun plazas simuladas y numero de personas (sin estado naranja). */
 function reservaEstadoDia(huecos, personas) {
   const p = personas || 1;
   if (huecos < 0) return "closed";
@@ -91,7 +91,7 @@ function initReservacionForm(form, options) {
   function updateTriggerLabel() {
     if (!triggerLabel) return;
     if (!selected) {
-      triggerLabel.textContent = "Seleccionar día";
+      triggerLabel.textContent = "Seleccionar dia";
       return;
     }
     triggerLabel.textContent = selected.toLocaleDateString("es-ES", {
@@ -233,7 +233,7 @@ function initReservacionForm(form, options) {
     if (!hidden.value) {
       if (msg) {
         msg.hidden = false;
-        msg.textContent = "Elige un día en el calendario.";
+        msg.textContent = "Elige un dia en el calendario.";
       }
       setPanelOpen(true);
       return;
@@ -250,12 +250,12 @@ function initReservacionForm(form, options) {
     });
     if (msg) msg.hidden = false;
     if (huecos < 0) {
-      if (msg) msg.textContent = "Ese día permanecemos cerrados. Elige otra fecha.";
+      if (msg) msg.textContent = "Ese dia permanecemos cerrados. Elige otra fecha.";
       return;
     }
     if (huecos < personas) {
       if (msg)
-        msg.textContent = `Gracias${nombre ? ", " + nombre : ""}. El ${fechaTxt} no hay sitio para ${personas} personas. Prueba otro día o llámanos.`;
+        msg.textContent = `Gracias${nombre ? ", " + nombre : ""}. El ${fechaTxt} no hay sitio para ${personas} personas. Prueba otro dia o llamanos.`;
       return;
     }
     if (msg) {
