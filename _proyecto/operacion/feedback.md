@@ -300,4 +300,4 @@ En **`/8-publicar-demos`**, cada negocio en el repo `Web` debe usar **dos carpet
 
 En **cada publicación**, sincronizar también **`_proyecto/`** en el mismo repo (fuera del slug): skills, rules, `operacion/feedback.md` y `Registro_Negocios.xlsx` — ver `config/publicar-demos.json` → `sync_proyecto`.
 
-HTML generado en preparación: **UTF-8 con BOM** (`Write-Utf8Html`); evita tildes rotas en Pages (`InfografÃ­a`, `Â·`).
+Preview en GitHub: textos del slug **sin tildes** (ASCII) en portal, infografia y demos publicadas; expediente local puede llevar tildes.
