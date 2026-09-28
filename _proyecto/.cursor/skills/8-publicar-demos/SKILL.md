@@ -10,7 +10,7 @@ Alias: `/publicar-demos-preview Go`.
 
 1. Negocio: activo en estado/Excel o el indicado en la invocación.
 2. **`preparar_preview_cliente.ps1`** — staging por slug:
-   - `{slug}/index.html` — portal (enlaces a **Infografia** y **Demos**).
+   - `{slug}/index.html` — portal: **Infografia** + **Demos** (una tarjeta; enlace al comparador con A, B y C).
    - `Infografia/index.html` — solo infografía. **No** subir propuesta.
    - `Demos/index.html` — comparador; `Demos/Demo A|B|C/` + `assets/` + `shared/`.
 3. **`publicar_preview_expediente.ps1`** — sube vía API (sin git/gh).
@@ -22,7 +22,7 @@ Eliminar remoto si existía: `{slug}/comercial/05-propuesta-cliente.html`.
 
 ## Texto en GitHub (solo ASCII)
 
-Todo el slug cliente sin tildes: `.html`/`.md` con ASCII estricto; **`.js`/`.css` con `Convert-ToSafeScriptAscii`** (no sustituir `«»` por `"` o se rompen strings y la demo queda vacia). Portal: enlace directo a **Demo A** + Infografia + comparador opcional.
+Slug cliente **sin tildes en vocales** (aeiou/n); **conservar `¿` y `¡`** en FAQ y copy publicado. `.html`/`.md` con conversion ASCII; **`.js`/`.css` con `Convert-ToSafeScriptAscii`** (no sustituir `«»` por `"` o se rompen strings y la demo queda vacia). Portal: **Infografia** + tarjeta **Demos** → `Demos/index.html` (comparador con las tres propuestas).
 
 Archivos de publicación: **UTF-8 sin BOM** (`Write-PublishTextFile`). Portal incluye comentario `<!-- publish ISO -->` para detectar despliegue.
 
