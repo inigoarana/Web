@@ -346,7 +346,7 @@ a { color: inherit; }
   max-width: 42rem;
 }
 .quote-c::before {
-  content: """;
+  content: "'";
   color: var(--accent);
   margin-right: 0.15em;
 }
