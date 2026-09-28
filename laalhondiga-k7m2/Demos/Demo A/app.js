@@ -1,8 +1,8 @@
-(function () {
+﻿(function () {
   const d = LA_ALHONDIGA;
   const imgHero = document.getElementById("img-hero");
   imgHero.src = d.images.hero;
-  imgHero.alt = "La Alhondiga · salón de restaurante en Indautxu";
+  imgHero.alt = "La Alhondiga - salon de restaurante en Indautxu";
   document.getElementById("kicker").textContent = d.tagline;
   document.getElementById("lede").textContent = d.propuesta;
   document.getElementById("intro-text").textContent =
