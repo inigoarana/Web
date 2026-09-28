@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="description" content="La Alhondiga · Barra y desayuno en General Salazar, Bilbao." />
-  <title>La Alhondiga · Barra matinal</title>
+  <meta name="description" content="La Alhondiga - Barra y desayuno en General Salazar, Bilbao." />
+  <title>La Alhondiga - Barra matinal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <p class="image-disclaimer" role="note">*Imágenes de ejemplo sacadas de internet</p>
+  <p class="image-disclaimer" role="note">*Imagenes de ejemplo sacadas de internet</p>
   <a class="skip-link" href="#historia">Saltar al contenido</a>
   <div class="site-top-bar">
     <div class="site-top-bar-inner">
@@ -31,8 +31,8 @@
         <li><a href="#barra">Carta</a></li>
         <li><a href="#horario">Horario</a></li>
         <li><a href="#reservar">Reservar</a></li>
-        <li><a href="#ubicacion">Localización</a></li>
-        <li><a href="#contacto">Contáctanos</a></li>
+        <li><a href="#ubicacion">Localizacion</a></li>
+        <li><a href="#contacto">Contactanos</a></li>
       </ul>
       <a class="site-nav-tel" data-nav-tel href="tel:+34944105764">944 105 764</a>
     </div>
@@ -40,7 +40,7 @@
   <header class="masthead" id="inicio" data-val="VAL-001">
     <div class="masthead-grid">
       <div class="masthead-copy">
-        <p class="eyebrow">General Salazar · Bilbao</p>
+        <p class="eyebrow">General Salazar - Bilbao</p>
         <h1>La Alhondiga</h1>
         <p class="deck" id="deck"></p>
         <a class="tel-line" id="mast-tel" href="#">944 105 764</a>
@@ -78,7 +78,7 @@
       <p class="horario-note" id="when-extra"></p>
       <table class="horario-table">
         <caption class="visually-hidden">Horario de referencia</caption>
-        <thead><tr><th scope="col">Día</th><th scope="col">Horario</th></tr></thead>
+        <thead><tr><th scope="col">Dia</th><th scope="col">Horario</th></tr></thead>
         <tbody id="horario-body"></tbody>
       </table>
     </section>
@@ -110,7 +110,7 @@
             <div class="reserva-cal-picker">
               <button type="button" class="reserva-cal-trigger" data-reserva-cal-trigger aria-expanded="false" aria-haspopup="dialog" aria-labelledby="label-fecha-b">
                 <span class="reserva-cal-icon" aria-hidden="true">📅</span>
-                <span data-reserva-cal-label>Seleccionar día</span>
+                <span data-reserva-cal-label>Seleccionar dia</span>
               </button>
               <div class="reserva-cal-panel" data-reserva-cal-panel hidden>
                 <div data-reserva-cal></div>
@@ -119,8 +119,8 @@
           </div>
           <input type="hidden" name="fecha" required />
         </fieldset>
-        <label>Teléfono <input name="tel" type="tel" required autocomplete="tel" /></label>
-        <label>Notas <textarea name="notas" rows="2" placeholder="Terraza, cumpleaños, alergias…"></textarea></label>
+        <label>Telefono <input name="tel" type="tel" required autocomplete="tel" /></label>
+        <label>Notas <textarea name="notas" rows="2" placeholder="Terraza, cumpleanos, alergias…"></textarea></label>
         <button type="submit">Enviar solicitud</button>
         <p class="form-msg" id="form-msg-b" hidden role="status"></p>
       </form>
@@ -134,22 +134,22 @@
   </section>
   <div id="site-cierre-root">
     <section id="ubicacion" class="site-map-block" aria-labelledby="h-mapa">
-      <h2 id="h-mapa" class="visually-hidden">Ubicación</h2>
+      <h2 id="h-mapa" class="visually-hidden">Ubicacion</h2>
       <p class="site-map-address" data-map-address></p>
       <div class="site-map-wrap">
-        <iframe class="site-map-iframe" title="Mapa · La Alhondiga General Salazar 3" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe class="site-map-iframe" title="Mapa - La Alhondiga General Salazar 3" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="site-map-actions">
         <a class="map-btn-primary" data-map-view href="#" rel="noopener noreferrer">Abrir en Google Maps</a>
-        <a class="map-btn-secondary" data-map-directions href="#" rel="noopener noreferrer">Cómo llegar</a>
+        <a class="map-btn-secondary" data-map-directions href="#" rel="noopener noreferrer">Como llegar</a>
       </div>
     </section>
     <section id="contacto" class="site-contact" aria-labelledby="h-contacto">
-      <h2 id="h-contacto">Contáctanos</h2>
-      <p class="contact-lead">Escríbenos y te responderemos lo antes posible.</p>
+      <h2 id="h-contacto">Contactanos</h2>
+      <p class="contact-lead">Escribenos y te responderemos lo antes posible.</p>
       <form id="site-contact-form" novalidate>
         <label>Nombre <input name="nombre" required autocomplete="name" /></label>
-        <label>Correo electrónico <input name="email" type="email" required autocomplete="email" /></label>
+        <label>Correo electronico <input name="email" type="email" required autocomplete="email" /></label>
         <label>Asunto <input name="asunto" required /></label>
         <label>Mensaje <textarea name="mensaje" required></textarea></label>
         <button type="submit">Enviar mensaje</button>
