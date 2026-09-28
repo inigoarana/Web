@@ -299,3 +299,5 @@ Feedback acumulado de revisión de demos (utilitaria + narrativa). **Aplica a De
 En **`/8-publicar-demos`**, cada negocio en el repo `Web` debe usar **dos carpetas clicables** bajo el slug (más portal índice): **`Infografia/`** (solo infografía; **no** subir propuesta HTML al remoto) y **`Demos/`** (comparador + **Demo A**, **Demo B**, **Demo C**). Portal `{slug}/index.html` enlaza a ambas.
 
 En **cada publicación**, sincronizar también **`_proyecto/`** en el mismo repo (fuera del slug): skills, rules, `operacion/feedback.md` y `Registro_Negocios.xlsx` — ver `config/publicar-demos.json` → `sync_proyecto`.
+
+HTML generado en preparación: **UTF-8 con BOM** (`Write-Utf8Html`); evita tildes rotas en Pages (`InfografÃ­a`, `Â·`).
