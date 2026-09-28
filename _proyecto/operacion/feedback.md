@@ -6,6 +6,12 @@ Las entradas nuevas de **preferencias de producto** (demos, comercial, tono) deb
 
 ---
 
+## 2026-09-28 · Comercial · español y bloque «Cómo encaja»
+
+Piezas al cliente en **español de España neutro**. Evitar **«salón»** en copy visible; usar barra, local, restaurante o reserva por teléfono. Regla: `.cursor/rules/04-espanol-piezas-cliente.mdc`; skill `/5-comercial` (tono + infografía).
+
+En `05-infografia-valor.html`, la sección **Cómo encaja con lo que ya tenéis** debe seguir el patrón de tres pasos (referencia expediente bar Joserra): píldoras de canales **reales** del negocio; búsqueda con **nombre del local**; paso web = **sitio + carta/menú + horario**; cierre = vienen o llaman/reservan (barra en bar).
+
 ## 2026-09-28 · Investigación · auditoría visual de webs
 
 En etapa 1, cuando el usuario pida valorar si una web se ve **antigua u obsoleta**, usar **navegador** (captura + estructura), no solo fetch de texto. Documentar veredicto comparativo breve y reflejarlo en **Necesidad** / **Valor añadido** y **Motivo puntuación** (plantillas tipo IONOS/MyWebsite, «versión imprimir», layout fijo sin móvil moderno = señal fuerte de mejora).
