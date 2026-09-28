@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "ID": "indh041",
+  "generado_en": "2026-09-28T16:00:00+02:00",
+  "activos": [
+    {
+      "file": "demo-hero.jpg",
+      "origen": "https://www.laalhondiga.es/s/cc_images/cache_2411650199.jpg",
+      "fecha": "2026-09-28",
+      "nota": "Salón restaurante — web oficial"
+    },
+    {
+      "file": "demo-barra.jpg",
+      "origen": "https://www.laalhondiga.es/s/img/emotionheader.jpg",
+      "fecha": "2026-09-28",
+      "nota": "Cabecera bar — web oficial"
+    },
+    {
+      "file": "comparador-demo-a.jpg",
+      "origen": "derivado demo-hero.jpg",
+      "nota": "Preview comparador"
+    },
+    {
+      "file": "comparador-demo-b.jpg",
+      "origen": "derivado demo-barra.jpg",
+      "nota": "Preview comparador"
+    },
+    {
+      "file": "comparador-demo-c.jpg",
+      "origen": "derivado demo-hero.jpg",
+      "nota": "Preview comparador"
+    }
+  ]
+}
