@@ -1,4 +1,4 @@
-﻿/** Scroll reveal (patron editorial - IntersectionObserver). */
+/** Scroll reveal (patron editorial - IntersectionObserver). */
 function initScrollReveal(selector) {
   const els = document.querySelectorAll(selector || ".reveal");
   if (!els.length) return;
