@@ -1,17 +1,17 @@
-(function () {
+﻿(function () {
   const d = LA_ALHONDIGA;
   document.getElementById("deck").textContent = d.deckLine || d.propuesta;
   const sh = document.getElementById("story-heading");
-  if (sh) sh.textContent = d.storyHeading || `${d.brand} · ${d.tagline}`;
+  if (sh) sh.textContent = d.storyHeading || `${d.brand} - ${d.tagline}`;
   document.getElementById("mast-img").src = d.images.hero;
-  document.getElementById("mast-img").alt = "La Alhondiga · ambiente de barra";
+  document.getElementById("mast-img").alt = "La Alhondiga - ambiente de barra";
   const st = d.storytellingDemoB;
   document.getElementById("story-hook").textContent = st.hook;
   document.getElementById("story-p1").textContent = st.paragraphs[0];
   document.getElementById("story-p2").textContent = st.paragraphs[1];
   document.getElementById("story-p3").textContent = st.paragraphs[2];
   document.getElementById("img-barra").src = d.images.barra;
-  document.getElementById("img-barra").alt = "La Alhondiga · detalle de barra";
+  document.getElementById("img-barra").alt = "La Alhondiga - detalle de barra";
   const nTitle = document.getElementById("h-narrative-band");
   const nLead = document.getElementById("narrative-band-lead");
   if (nTitle) nTitle.textContent = d.narrativeBandTitle || st.hook;
@@ -39,7 +39,7 @@
   });
   linkTel("mast-tel", d.phoneTel, d.phoneDisplay);
   linkTel("cierre-tel", d.phoneTel, d.phoneDisplay);
-  document.getElementById("foot").textContent = `${d.brand} · ${d.tagline}`;
+  document.getElementById("foot").textContent = `${d.brand} - ${d.tagline}`;
   const cel = document.getElementById("celebraciones-text");
   if (cel && d.celebracionesBlock) cel.textContent = d.celebracionesBlock.texto;
   const barT = document.getElementById("bar-text");
