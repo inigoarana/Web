@@ -1,0 +1,9 @@
+---
+description: Registrar en feedback.md los cambios acordados en skills, reglas y prompts.
+alwaysApply: true
+---
+Cuando el usuario pida **cambios o preferencias** que afecten a skills (`.cursor/skills/`), reglas (`.cursor/rules/`), protocolo transversal o criterios de producto reutilizables, **actualizar también** `operacion/feedback.md` en la misma sesión o inmediatamente después.
+
+- Redactar entradas de **preferencias de producto** en lenguaje genérico (sin depender de expedientes concretos que puedan borrarse).
+- Los detalles técnicos de implementación pueden vivir en la skill; en `feedback.md` va el **qué** y **por qué** acordado con el usuario.
+- No sustituye skills ni Excel en ejecución; es trazabilidad histórica para humanos y futuros agentes.
