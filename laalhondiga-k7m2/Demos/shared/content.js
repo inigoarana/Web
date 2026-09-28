@@ -66,7 +66,7 @@ const LA_ALHONDIGA = {
     },
     {
       name: "Mediodia - fin de semana",
-      desc: "32,90  EUR - crianza "Vino de Municipio" de Laguardia",
+      desc: "32,90  EUR - crianza 'Vino de Municipio' de Laguardia",
     },
     {
       name: "Carta entre semana",
