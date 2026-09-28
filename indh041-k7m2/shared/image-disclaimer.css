@@ -1,0 +1,23 @@
+.image-disclaimer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  max-width: min(100%, 16rem);
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(15, 15, 15, 0.72);
+  backdrop-filter: blur(6px);
+  border-bottom-right-radius: 6px;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .image-disclaimer {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.85rem;
+  }
+}
