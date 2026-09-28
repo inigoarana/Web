@@ -16,13 +16,13 @@ Alias: `/publicar-demos-preview Go`.
 3. **`publicar_preview_expediente.ps1`** — sube vía API (sin git/gh).
 4. **Sync** a **`_proyecto/`**: skills, rules, `feedback.md`, `Registro_Negocios.xlsx` (`config/publicar-demos.json`).
 5. Actualiza `04-enlace-preview.json` y «Enlace compartible» en `04-nota-demo.md`.
-6. Tras subir: **POST** `pages/builds` para refrescar GitHub Pages; verificar **raw** en GitHub (no confundir con caché de `github.io`).
+6. Tras subir: intentar **POST** `pages/builds`; si falla el token, escribir **`.nojekyll`** y **`pages-deploy-stamp.txt`** en la **raíz del repo** (redeploy legacy). Esperar 1–3 min y verificar **raw** y **github.io**.
 
 Eliminar remoto si existía: `{slug}/comercial/05-propuesta-cliente.html`.
 
 ## Texto en GitHub (solo ASCII)
 
-Todo el slug cliente (portal, Infografia, Demos): **`Convert-ToStrictPublishAscii`** en `.html`, `.js`, `.css`, `.md` — sin tildes, sin eñes, sin `€` (usar ` EUR`), sin emojis, sin `—`/`«»`. Expediente local puede llevar tildes.
+Todo el slug cliente sin tildes: `.html`/`.md` con ASCII estricto; **`.js`/`.css` con `Convert-ToSafeScriptAscii`** (no sustituir `«»` por `"` o se rompen strings y la demo queda vacia). Portal: enlace directo a **Demo A** + Infografia + comparador opcional.
 
 Archivos de publicación: **UTF-8 sin BOM** (`Write-PublishTextFile`). Portal incluye comentario `<!-- publish ISO -->` para detectar despliegue.
 
