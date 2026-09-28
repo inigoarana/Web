@@ -1,0 +1,7 @@
+---
+description: Persistencia, deduplicación, puntuación y checklist única por negocio en Excel.
+alwaysApply: true
+---
+Antes de cada etapa leer Registro_Negocios.xlsx en ruta configurada, estado y referencias del ID. No repetir filas investigadas ni etapas con Sí vigente; resolver operaciones interrumpidas y discrepancias primero. Registrar por ID, no posición de fila. Selección=Sí no significa seleccionado: leer Decisión selección.
+Sí solo tras completar y verificar salidas. Bloqueo/revisión mantiene No con motivo; invalidar descendientes afectados conservando historia. Nuevas filas no invalidan otras. Nunca usar hash global del Excel como dependencia comercial: el hash global solo protege concurrencia al guardar.
+Mantener fórmula de nota 1–10, factores y pesos visibles; priorizar pendientes por nota descendente con desempate fecha/ID. No fabricar datos para rellenar dropdowns: desconocidos explícitos. Usar copia temporal, respaldo, bloqueo exclusivo y comprobación de hash; si Excel está abierto/bloqueado, detener guardado y no afirmar éxito. No resetear registro ni sobrescribir notas manuales.
