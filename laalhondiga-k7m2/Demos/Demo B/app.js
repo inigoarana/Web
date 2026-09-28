@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   const d = LA_ALHONDIGA;
   document.getElementById("deck").textContent = d.deckLine || d.propuesta;
   const sh = document.getElementById("story-heading");
