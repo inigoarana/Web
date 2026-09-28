@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Calendario de reserva (demo estatica).
  * Huecos simulados por fecha; en produccion vendrian del backend.
  * UI: panel compacto abierto solo al pulsar el icono de calendario.
@@ -108,11 +108,11 @@ function initReservacionForm(form, options) {
     const prev = document.createElement("button");
     prev.type = "button";
     prev.setAttribute("aria-label", "Mes anterior");
-    prev.textContent = "‹";
+    prev.textContent = "<";
     const next = document.createElement("button");
     next.type = "button";
     next.setAttribute("aria-label", "Mes siguiente");
-    next.textContent = "›";
+    next.textContent = ">";
     const title = document.createElement("p");
     title.className = "reserva-cal-title";
     title.textContent = view.toLocaleDateString("es-ES", {
@@ -266,7 +266,7 @@ function initReservacionForm(form, options) {
   });
 }
 
-/** Formulario de reserva oculto hasta pulsar «Reserva online». */
+/** Formulario de reserva oculto hasta pulsar "Reserva online". */
 function initReservaPanel(root) {
   const section =
     typeof root === "string" ? document.querySelector(root) : root;
