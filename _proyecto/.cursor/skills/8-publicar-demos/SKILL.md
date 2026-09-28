@@ -21,9 +21,11 @@ Alias aceptado: `/publicar-demos-preview Go` (misma skill).
 
 Eliminar del remoto si existían: `{slug}/comercial/05-propuesta-cliente.html` (y la infografía duplicada en `comercial/`). **No** republicar propuesta.
 
-### Codificación (tildes y eñes)
+### Texto publicado en GitHub (sin tildes)
 
-Todo HTML **generado** en preparación debe guardarse en **UTF-8 con BOM** (`Write-Utf8Html` en el script). **No** usar `Set-Content -Encoding UTF8` en Windows PowerShell 5.1 para portal/comparador/infografía copiada: puede corromper tildes en GitHub Pages (`InfografÃ­a`, `quÃ©`, `Â·`).
+En lo que se sube al slug del cliente (**portal, Infografia, Demos**), el texto visible va **sin tildes ni eñes** (ASCII): `preparar_preview_cliente.ps1` aplica `Remove-PublishDiacritics` a `.html`, `.js`, `.css`, `.md` del staging. Los expedientes locales pueden conservar tildes; la copia en GitHub no.
+
+Guardar con **UTF-8 con BOM** (`Write-Utf8Html`). No usar `Set-Content -Encoding UTF8` en PS 5.1 para generar HTML.
 
 ## Cómo lo ve el cliente (Pages)
 
