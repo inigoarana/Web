@@ -266,7 +266,7 @@ function initReservacionForm(form, options) {
   });
 }
 
-/** Formulario de reserva oculto hasta pulsar "Reserva online". */
+/** Formulario de reserva oculto hasta pulsar 'Reserva online'. */
 function initReservaPanel(root) {
   const section =
     typeof root === "string" ? document.querySelector(root) : root;
