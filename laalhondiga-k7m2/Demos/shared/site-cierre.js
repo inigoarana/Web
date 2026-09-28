@@ -1,7 +1,7 @@
-/**
- * Cierre estándar /4-demo: mapa Google, formulario Contáctanos (mailto), redes.
+﻿/**
+ * Cierre estandar /4-demo: mapa Google, formulario Contactanos (mailto), redes.
  * Requiere LA_ALHONDIGA o objeto con: map { embedUrl, viewUrl, directionsUrl }, address,
- * ownerEmail (null = demo sin envío), social [{ id, url, label }], inviteHeadline, inviteText.
+ * ownerEmail (null = demo sin envio), social [{ id, url, label }], inviteHeadline, inviteText.
  */
 (function () {
   function encodeMailBody(fields) {
@@ -50,7 +50,7 @@
   const DEMO_HEADER_SOCIAL = [
     { id: "instagram", url: "#", label: "Instagram", demo: true },
     { id: "facebook", url: "#", label: "Facebook", demo: true },
-    { id: "google", url: "#", label: "Google reseñas", demo: true },
+    { id: "google", url: "#", label: "Google resenas", demo: true },
     { id: "tripadvisor", url: "#", label: "TripAdvisor", demo: true },
   ];
 
@@ -60,7 +60,7 @@
     if (list.length === 1 && ids.has("instagram")) {
       const reviews = (data.map && (data.map.reviewsUrl || data.map.viewUrl)) || null;
       if (reviews && !ids.has("google")) {
-        list.push({ id: "google", url: reviews, label: "Google reseñas" });
+        list.push({ id: "google", url: reviews, label: "Google resenas" });
         ids.add("google");
       }
       if (data.tripadvisorUrl && !ids.has("tripadvisor")) {
@@ -187,7 +187,7 @@
       if (!data.ownerEmail) {
         if (status) {
           status.textContent =
-            "Demo: el formulario enviará un correo al email que indique el propietario al publicar la web.";
+            "Demo: el formulario enviara un correo al email que indique el propietario al publicar la web.";
           status.hidden = false;
         }
         return;
