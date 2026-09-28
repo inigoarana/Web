@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Textura decorativa">
+  <rect width="800" height="600" fill="#f4ebe0"/>
+  <path d="M0 420 Q200 380 400 420 T800 420 V600 H0Z" fill="#c4a574" opacity="0.35"/>
+  <path d="M40 480 h720" stroke="#8b6914" stroke-width="3" opacity="0.25"/>
+  <path d="M80 120 Q400 80 720 140" fill="none" stroke="#5c4033" stroke-width="2" opacity="0.2"/>
+</svg>
