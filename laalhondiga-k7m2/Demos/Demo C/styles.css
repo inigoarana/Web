@@ -1,5 +1,5 @@
-:root {
-  /* Paleta libre · tono barra (carbón + cobre), no atada al verde */
+﻿:root {
+  /* Paleta libre - tono barra (carbon + cobre), no atada al verde */
   --accent-deep: #141210;
   --accent-dark: #1e1a17;
   --accent-mid: #2c2620;
@@ -406,7 +406,7 @@ a { color: inherit; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
 
-/* Banda ancha, baja · mismo ancho que localización */
+/* Banda ancha, baja - mismo ancho que localizacion */
 .site-invite.site-invite--band {
   max-width: none;
   margin: 0;
