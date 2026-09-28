@@ -49,7 +49,7 @@ Referencia de implementación: `operacion/plantillas-demo/shared/` (copiar a `04
 
 **Contenido por negocio (anti-arrastre):** al reutilizar código de otro expediente, reescribir **`shared/content.js`** y titulares HTML desde el brief activo (dirección, número, producto estrella, tono). No dejar literales de otro local («número 4», «vermut sin prisas», etc.). Campos recomendados en datos: `storyHeading`, `deckLine`, `narrativeBandTitle`, `narrativeBandText`, `cartaIntro` — variar redacción entre negocios (ejemplos de titular B, elegir uno acorde al caso: «La barra en [Calle] [n]», «[Barrio] en la barra», «Donde desayuna [zona]», «El [n] de [calle]»). Banda narrativa Demo B: título y texto acordes al **perfil real** (café matinal, peluquería, comercio…), no copiar bloques «vermut» de hostelería nocturna.
 
-**FAQ y secciones:** bloques FAQ (`#preguntas`) con el **mismo ancho y márgenes** que carta/horario/reserva en Demo B (contenedor centrado + padding horizontal alineado).
+**FAQ y secciones:** bloques FAQ (`#preguntas`) con el **mismo ancho y márgenes** que carta/horario/reserva en Demo B (contenedor centrado + padding horizontal alineado). Preguntas en **español de España**: abrir con **`¿`** (no `?` suelto al inicio). En **`/8-publicar-demos`**, la pasada sin tildes **no** debe quitar `¿`/`¡` del slug publicado.
 
 **Reserva:** no repetir teléfonos bajo «Enviar solicitud». Formulario oculto al cargar; botón **«Reserva online»** abre/cierra el panel (toggle). Orden: **Personas** antes que **Fecha**. Calendario compacto bajo 📅 (ver bloque hostelería).
 
