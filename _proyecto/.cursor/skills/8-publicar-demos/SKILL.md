@@ -4,60 +4,57 @@
 
 **`/8-publicar-demos`** sin más texto = **`/8-publicar-demos Go`**.
 
-Alias aceptado: `/publicar-demos-preview Go` (misma skill).
+Alias: `/publicar-demos-preview Go`.
 
-## Qué hace el agente (no el usuario manual)
+## Qué hace el agente
 
-1. Lee `config/publicar-demos.json` y el negocio (activo en estado/Excel o el indicado en la invocación).
-2. **`scripts/preparar_preview_cliente.ps1`** — empaqueta por slug (estructura **cliente**, fácil de clicar):
-   - **`{slug}/index.html`** — portal: enlaces a **Infografía** y **Demos**.
-   - **`Infografia/index.html`** — solo infografía (`05-infografia-valor.html`). **No** subir `05-propuesta-cliente.html`.
-   - **`Demos/index.html`** — comparador (tres demos juntas).
-   - **`Demos/Demo A`**, **`Demo B`**, **`Demo C`** — copia de `04-demos/demo-a|b|c` + `assets/` + `shared/`.
-3. **`scripts/publicar_preview_expediente.ps1`** — sube staging vía API HTTPS (**sin** git/gh).
-4. **Sync proyecto** (misma ejecución): en el repo **`_proyecto/`** (fuera de cada slug), actualiza lo configurado en `sync_proyecto`: `.cursor/skills`, `.cursor/rules`, `operacion/feedback.md`, `Registro_Negocios.xlsx`.
-5. Escribe/actualiza **`04-enlace-preview.json`** y «Enlace compartible» en `04-nota-demo.md`.
-6. Responde con **URL portal** `{pages_url_base}/{slug}/index.html` (WhatsApp/email).
+1. Negocio: activo en estado/Excel o el indicado en la invocación.
+2. **`preparar_preview_cliente.ps1`** — staging por slug:
+   - `{slug}/index.html` — portal (enlaces a **Infografia** y **Demos**).
+   - `Infografia/index.html` — solo infografía. **No** subir propuesta.
+   - `Demos/index.html` — comparador; `Demos/Demo A|B|C/` + `assets/` + `shared/`.
+3. **`publicar_preview_expediente.ps1`** — sube vía API (sin git/gh).
+4. **Sync** a **`_proyecto/`**: skills, rules, `feedback.md`, `Registro_Negocios.xlsx` (`config/publicar-demos.json`).
+5. Actualiza `04-enlace-preview.json` y «Enlace compartible» en `04-nota-demo.md`.
+6. Tras subir: **POST** `pages/builds` para refrescar GitHub Pages; verificar **raw** en GitHub (no confundir con caché de `github.io`).
 
-Eliminar del remoto si existían: `{slug}/comercial/05-propuesta-cliente.html` (y la infografía duplicada en `comercial/`). **No** republicar propuesta.
+Eliminar remoto si existía: `{slug}/comercial/05-propuesta-cliente.html`.
 
-### Texto publicado en GitHub (sin tildes)
+## Texto en GitHub (solo ASCII)
 
-En lo que se sube al slug del cliente (**portal, Infografia, Demos**), el texto visible va **sin tildes ni eñes** (ASCII): `preparar_preview_cliente.ps1` aplica `Remove-PublishDiacritics` a `.html`, `.js`, `.css`, `.md` del staging. Los expedientes locales pueden conservar tildes; la copia en GitHub no.
+Todo el slug cliente (portal, Infografia, Demos): **`Convert-ToStrictPublishAscii`** en `.html`, `.js`, `.css`, `.md` — sin tildes, sin eñes, sin `€` (usar ` EUR`), sin emojis, sin `—`/`«»`. Expediente local puede llevar tildes.
 
-Guardar con **UTF-8 con BOM** (`Write-Utf8Html`). No usar `Set-Content -Encoding UTF8` en PS 5.1 para generar HTML.
+Archivos de publicación: **UTF-8 sin BOM** (`Write-PublishTextFile`). Portal incluye comentario `<!-- publish ISO -->` para detectar despliegue.
 
-## Cómo lo ve el cliente (Pages)
+## Verificación obligatoria al cerrar
 
-| Pieza | URL |
+1. **Fuente de verdad:** `https://raw.githubusercontent.com/{usuario}/{repo}/{rama}/{slug}/index.html` debe mostrar `Infografia`, `que ver`, `-` (sin `Ã` ni `Â`).
+2. **Pages:** `https://{usuario}.github.io/{repo}/{slug}/index.html` puede tardar minutos; si raw OK y Pages viejo → rebuild Pages o esperar.
+3. Responder al usuario con URL **portal** en `github.io`.
+
+## URLs cliente
+
+| Pieza | Ruta |
 | --- | --- |
-| **Portal** (enviar este enlace) | `https://{usuario}.github.io/{repo}/{slug}/index.html` |
-| Infografía | `…/{slug}/Infografia/index.html` |
-| Comparador A/B/C | `…/{slug}/Demos/index.html` |
+| Portal | `…/{slug}/index.html` |
+| Infografia | `…/{slug}/Infografia/index.html` |
+| Comparador | `…/{slug}/Demos/index.html` |
 | Demo A | `…/{slug}/Demos/Demo%20A/index.html` |
 
-## Cómo verlo en GitHub (árbol de archivos)
+## GitHub (árbol)
 
-Repo configurado en `config/publicar-demos.json` (ej. `inigoarana/Web`):
-
-| Qué | Ruta en GitHub |
+| Qué | Ruta |
 | --- | --- |
-| Portal + carpetas del negocio | `/{slug}/` → `index.html`, `Infografia/`, `Demos/` |
-| Infografía (archivos) | `/{slug}/Infografia/` |
-| Demos + A/B/C | `/{slug}/Demos/` |
-| Skills, rules, feedback, Excel (sync) | `/_proyecto/` |
+| Negocio | `/{slug}/` |
+| Sync operación | `/_proyecto/` |
 
-En GitHub se **navegan archivos**; en **github.io** se **abren** las páginas. Pueden quedar carpetas obsoletas de publicaciones antiguas (`demo-a/`, `comercial/` en la raíz del slug): borrarlas a mano en el repo si molestan.
+## Token
 
-## Requisito único (una vez por equipo)
-
-**`operacion/github-publish.local.json`** (no commitea): token con **Contents: Read and write** en el repo `Web`.
-
-Si no hay token: crear PAT en github.com, guardar JSON, reinvocar `/8-publicar-demos Go`.
+`operacion/github-publish.local.json` — Contents read/write (Pages build recomendado).
 
 ## Slug
 
-Reutilizar slug en `04-enlace-preview.json`; si no, `{nombre-normalizado}-{4chars}` (ej. `laalhondiga-k7m2`). No usar ID Excel en la URL pública.
+Reutilizar `04-enlace-preview.json`; si no, `{nombre-normalizado}-{4chars}`. No ID Excel en URL.
 
 ## No es etapa Excel
 
