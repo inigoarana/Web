@@ -20,6 +20,7 @@ Misión: material **breve y entregable** para captar interés; profundidad solo 
 ### Tono
 
 - **Conciso, directo.** Sin elogios largos ni metadatos de campaña en piezas al cliente («no enviado», «uso interno», etc.).
+- **Español de España neutro** (vosotros, léxico peninsular habitual). En piezas al cliente **no** usar «salón»; preferir **barra** (bar), **local**, **restaurante**, **mesa** o **reserva por teléfono** según el negocio.
 - Sin prometer ventas ni % de retorno no verificados. Cifras de **alcance o mecanismo** sí (1 horario, menos preguntas repetidas).
 
 ### Embudo
@@ -54,7 +55,7 @@ Actualizaciones de carta/horario cuando el local las pase; opcional mensual acot
 
 1. **Bondades genéricas** de tener web (1–2 ideas aplicables a casi cualquier local).
 2. **Impacto en este negocio** — qué cambia para ellos (fricción, horario disperso, carta…), con bloque visual (cifras de mecanismo, no ROI inventado).
-3. **Cómo encaja** con Google / apps existentes (píldoras + flujo buscar → web → barra).
+3. **Cómo encaja** con Google / canales existentes: píldoras reales del negocio (Maps, teléfono, Eatbu, web actual…) + flujo en **tres pasos** como referencia Bar Joserra — búsqueda con **nombre del local**, web confirma **sitio + carta/menú + horario**, cierre **vienen o llaman/reservan** (barra en bar; teléfono en restaurante).
 4. **Cómo ayuda la propuesta** — beneficios concretos para el local (encontraros, carta, horario, extras como QR o sábado) **sin** tres tarjetas rígidas «VAL-001/002/003» salvo que aporte claridad.
 
 Cubrir el **alcance aceptado** en `04-alcance-aceptado.json` de forma integrada, no como listado de servicios del innovador. Sin tarifas no aprobadas ni datos internos de margen.
