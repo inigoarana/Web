@@ -787,3 +787,114 @@ body:has(.site-nav--compact) [id] {
 .reservar--opcional .reserva-reveal-btn {
   margin-top: 0.75rem;
 }
+
+/* Accesibilidad - texto solo para lectores de pantalla */
+.visually-hidden,
+.site-nav-toggle__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Escritorio: menu horizontal; boton hamburguesa oculto */
+.site-nav-toggle {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .site-nav .site-nav-menu,
+  .nav-c .site-nav-menu {
+    display: flex !important;
+  }
+}
+
+/* Movil: barra compacta + desplegable (hamburguesa) */
+@media (max-width: 768px) {
+  .site-nav .site-nav-inner,
+  .nav-c .nav-c__inner {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.5rem;
+  }
+
+  .site-nav-brand,
+  .nav-c__brand {
+    margin-right: auto;
+    max-width: 45%;
+  }
+
+  .site-nav-tel,
+  .nav-c__tel {
+    margin-left: auto;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+
+  .site-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .site-nav-toggle:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  .site-nav-toggle__bars {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    box-shadow: 0 -7px 0 currentColor, 0 7px 0 currentColor;
+  }
+
+  .site-nav .site-nav-menu,
+  .nav-c .site-nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    flex-basis: 100%;
+    order: 10;
+    margin: 0;
+    padding: 0.35rem 0 0.5rem;
+    gap: 0;
+    border-top: 1px solid var(--site-chrome-border, rgba(0, 0, 0, 0.12));
+  }
+
+  .site-nav .site-nav-menu li,
+  .nav-c .site-nav-menu li {
+    width: 100%;
+  }
+
+  .site-nav .site-nav-menu a,
+  .nav-c .site-nav-menu a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 0.25rem;
+    width: 100%;
+  }
+
+  .site-nav.is-open .site-nav-menu,
+  .nav-c.is-open .site-nav-menu {
+    display: flex;
+  }
+}
