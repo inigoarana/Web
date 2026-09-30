@@ -1,0 +1,50 @@
+/* Barra fija movil - principios conversion /4-demo */
+
+.mobile-contact-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 120;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-contact-bar__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 0.5rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  color: #fff;
+  background: #1c1917;
+  border: none;
+}
+
+.mobile-contact-bar__btn--secondary {
+  background: #f5f3ee;
+  color: #1c1917;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .demo-pack-principios {
+    padding-bottom: 3.25rem;
+  }
+  .mobile-contact-bar {
+    display: grid;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-contact-bar {
+    display: none !important;
+  }
+}
