@@ -465,3 +465,10 @@ Revisión web obligatoria según **`estandares-revision-web.md`**: principios vi
 **Salida Revisar:** veredicto + D1–D6 + ítems numerados **en texto en el chat**; estado en `09-meta-entrega.json`. **No** crear `REVISION-SUPERVISOR.md` ni `PROPUESTA-CAMBIOS.md` salvo que el usuario lo pida explícitamente.
 
 **Doble capa en el chat:** cada hallazgo técnico (nav, skip link, responsive, `href="#"`, a11y, wrap, etc.) va con **explicación sencilla para no técnicos** («qué pasa en la práctica») además del nombre técnico para aprender. Glosario en `skills/9-mejora-continua/reference.md`.
+
+## 2026-09-30 · Terraza, skip link y comparador (brief → demo)
+
+- **Terraza:** si **/2** documenta terraza con fuente trazable (`hechos.terraza`, directorio/investigación), **sí** en UI demo (placeholder reserva, FAQ, galería C); **no** meter en `prohibido_ui` por defecto. Solo bloquear si no hay fuente o el titular la desmiente en depuración. Reglas en skills **2**, **3**, **4** y criterio **/9**.
+- **Skip link:** obligatorio en **A, B y C** («Saltar al contenido» → primer bloque principal).
+- **Comparador:** `demos/index.html` **autónomo** — sin enlaces a `../04-*.md` al compartir carpeta `demos/`.
+- **Nav móvil:** ≤768px = icono **hamburguesa** + panel desplegable (todas las anclas); ≥769px = menú horizontal. `site-cierre.js` + `site-chrome.css` (plantilla en `operacion/plantillas-demo/shared/`).
