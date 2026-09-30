@@ -69,12 +69,14 @@ Añade «Entradas para Comercial innovador»: necesidades cubiertas, problemas o
 - **Personalidad visual** (opcional): 2–3 adjetivos transferibles (sobrio, cercano, premium, artesanal…); **sin** fijar color obligatorio.
 - **Referencia visual externa** (solo si el **usuario** de campaña la indica): URL y **patrones** reutilizables (tipografía, scroll, layout); no copiar textos ni identidad ajena.
 
-**Jerarquía móvil 2026** (subapartado en `02-brief.md` bajo Entradas para Demo): orden de lectura en pantalla pequeña — **precio u oferta confirmada** → enlace/PDF si existe → **teléfono o reserva** → resto de secciones. Sin afirmar en UI datos no verificados (p. ej. terraza, horario detallado).
+**Jerarquía móvil 2026** (subapartado en `02-brief.md` bajo Entradas para Demo): orden de lectura en pantalla pequeña — **precio u oferta confirmada** → enlace/PDF si existe → **teléfono o reserva** → resto de secciones. Sin afirmar en UI datos **sin ninguna fuente** en el brief (p. ej. horario detallado si solo hay conflicto entre directorios).
+
+**Terraza y espacios exteriores:** si la investigación documenta terraza (directorio, ficha, prensa) con fuente trazable en `02-fuentes.json`, registrar en **`hechos.terraza`** (`estado`, `fuente`, `publicable_en_demo: true`) y **no** incluir «terraza» en **`prohibido_ui`** por defecto. Etapa 4 puede usarla en placeholder de reserva, FAQ o galería con redacción prudente (sin inventar aforo). Solo **`prohibido_ui`** si **no** hay mención en fuentes o el titular la desmiente en depuración.
 
 **Obligatorio en `02-datos-negocio.json`:** objeto `entradas_demo` con, como mínimo:
 
 - Campos análogos a la sección Entradas para Demo (adaptados al sector), incluido **`antiguedad_relato`** (`establecido` | `nuevo` | `cambio_marca` | `desconocido`) y, si aplica, **`heroEyebrow`**, **`deckLine`**, **`footerTagline`** (esloganes publicables; coherencia con antigüedad).
-- **`conversion_2026`:** `precio_tabular` (boolean), `hero_cta` (anclas/enlaces), `reserva_copy` (solicitud vs confirmación automática), **`prohibido_ui`** (lista de claims o elementos prohibidos en demo, p. ej. terraza no confirmada en QR).
+- **`conversion_2026`:** `precio_tabular` (boolean), `hero_cta` (anclas/enlaces), `reserva_copy` (solicitud vs confirmación automática), **`prohibido_ui`** (claims sin fuente: precios no confirmados, puntuaciones agregadores, delivery no verificado, etc.). **No** bloquear terraza en UI si está documentada en `hechos.terraza` con fuente de investigación.
 
 Opcional: `storytelling_demo_b` estructurado (ver abajo).
 
