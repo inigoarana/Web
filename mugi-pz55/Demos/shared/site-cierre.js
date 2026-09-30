@@ -1,6 +1,6 @@
 /**
  * Cierre estandar /4-demo: mapa Google, formulario Contactanos (mailto), redes.
- * Requiere LA_ALHONDIGA o objeto con: map { embedUrl, viewUrl, directionsUrl }, address,
+ * Requiere SITE_DATA / MUGI o objeto con: map { embedUrl, viewUrl, directionsUrl }, address,
  * ownerEmail (null = demo sin envio), social [{ id, url, label }], inviteHeadline, inviteText.
  */
 (function () {
@@ -309,28 +309,15 @@
     });
   }
 
-  function fillFooterNav(listEl, data) {
+  function fillFooterNav(listEl) {
     if (!listEl) return;
-    listEl.replaceChildren();
-    const configured = (data?.footerNav || []).filter(
-      (item) => item && item.label && item.href
-    );
-    if (configured.length) {
-      configured.forEach(({ label, href }) => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = href;
-        a.textContent = label;
-        li.appendChild(a);
-        listEl.appendChild(li);
-      });
-      return;
-    }
     const menu = document.querySelector(".site-nav-menu");
+    listEl.replaceChildren();
     if (!menu) return;
     menu.querySelectorAll("a[href^='#']").forEach((a) => {
       const li = document.createElement("li");
-      li.appendChild(a.cloneNode(true));
+      const link = a.cloneNode(true);
+      li.appendChild(link);
       listEl.appendChild(li);
     });
   }
@@ -379,10 +366,7 @@
     }
 
     fillFooterHours(footer.querySelector("[data-footer-hours]"), data);
-    const navList = footer.querySelector("[data-footer-nav]");
-    fillFooterNav(navList, data);
-    const navCol = navList?.closest(".site-footer__col");
-    if (navCol) navCol.hidden = !navList?.children.length;
+    fillFooterNav(footer.querySelector("[data-footer-nav]"));
 
     const socialUl = footer.querySelector("[data-social-list]");
     if (socialUl) {
@@ -500,4 +484,70 @@
     );
     map.forEach((_, el) => obs.observe(el));
   };
+
+  /** Movil: menu hamburguesa; escritorio: barra horizontal (responsive). */
+  function initMobileNav(nav) {
+    if (!nav || nav.dataset.mobileNavInit === "1") return;
+    const inner = nav.querySelector(".site-nav-inner, .nav-c__inner");
+    const menu = nav.querySelector(".site-nav-menu");
+    if (!inner || !menu) return;
+    nav.dataset.mobileNavInit = "1";
+
+    if (!menu.id) menu.id = "primary-nav-menu";
+
+    let toggle = nav.querySelector(".site-nav-toggle");
+    if (!toggle) {
+      toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "site-nav-toggle";
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-controls", menu.id);
+      toggle.innerHTML =
+        '<span class="site-nav-toggle__bars" aria-hidden="true"></span>' +
+        '<span class="site-nav-toggle__label">Menu</span>';
+      const tel = inner.querySelector(".site-nav-tel, .nav-c__tel");
+      if (tel) inner.insertBefore(toggle, tel);
+      else inner.appendChild(toggle);
+    }
+
+    function setOpen(open) {
+      nav.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setOpen(!nav.classList.contains("is-open"));
+    });
+
+    menu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!nav.classList.contains("is-open")) return;
+      if (!nav.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+
+    const mq = window.matchMedia("(min-width: 769px)");
+    const onWide = () => setOpen(false);
+    if (mq.addEventListener) mq.addEventListener("change", onWide);
+    else mq.addListener(onWide);
+  }
+
+  window.initMobileNav = initMobileNav;
+
+  function bootMobileNav() {
+    document.querySelectorAll(".main-nav, header.nav-c, #nav-c").forEach(initMobileNav);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootMobileNav);
+  } else {
+    bootMobileNav();
+  }
 })();
