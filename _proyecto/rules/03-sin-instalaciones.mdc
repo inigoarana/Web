@@ -1,0 +1,33 @@
+---
+description: Prohibición de instalar software o dependencias en el equipo del usuario
+alwaysApply: true
+---
+
+# Sin instalaciones en el equipo
+
+**Jamás** instalar software, runtimes, paquetes ni herramientas nuevas en la máquina del usuario, **incluso** para «desbloquear» compartir demos, subir a GitHub o generar enlaces. Solo si el usuario lo pide **explícitamente en ese mismo mensaje** (p. ej. «instala git»).
+
+## Prohibido por defecto
+
+- `npm install`, `pip install`, `winget`, `choco`, `scoop`, instaladores `.exe`/`.msi`
+- Instalar Python, Node, Git, gh, Docker u otros runtimes «para poder continuar»
+- Descargar o crear en el repo carpetas tipo **`.tools/`** (Node portable, npm embebido, etc.)
+- Proponer al usuario que instale algo como única vía sin ofrecer alternativa sin instalación
+
+## Permitido (sin instalar)
+
+- PowerShell/CMD **integrados en Windows** (p. ej. `Compress-Archive`, `curl.exe` si ya viene en el sistema)
+- Excel COM **si ya está instalado** (registro del proyecto)
+- Editar archivos del repo, ZIP locales, instrucciones para servicios **100 % en navegador** (p. ej. arrastrar carpeta a Netlify Drop)
+
+## Compartir demos estáticas
+
+Las rutas `file://` o rutas locales **no** se comparten pegando en el chat: el comparador `demos/index.html` **requiere HTTPS** (o localhost).
+
+Preferir, **sin instalar nada**:
+
+1. **GitHub Pages** (repositorio en navegador o `git`/`gh` **solo si ya están en PATH**) — skill `/publicar-demos-preview`.
+2. ZIP + enlace **OneDrive/Teams** (carpeta `demos` comprimida).
+3. Arrastrar carpeta a **Netlify Drop** u otro hosting solo-navegador.
+
+No instalar CLIs para automatizar publicación. Si no hay `git`/`gh`, usar la skill con flujo 100 % web en github.com.
