@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "ID": "indh010",
+  "generado_en": "2026-09-30T18:45:00+02:00",
+  "assets": [
+    {
+      "file": "demo-hero.jpg",
+      "rol": "hero",
+      "fuente": "unsplash",
+      "url": "https://unsplash.com/photos/photo-1517248135467-4c7edcad34c4",
+      "nota": "Comedor restaurante stock; sustituir por foto titular del local"
+    },
+    {
+      "file": "demo-barra.jpg",
+      "rol": "barra",
+      "fuente": "pexels",
+      "url": "https://www.pexels.com/photo/262978/",
+      "nota": "Barra/pintxos genérico"
+    },
+    {
+      "file": "demo-interior.jpg",
+      "rol": "interior",
+      "fuente": "pexels",
+      "url": "https://www.pexels.com/photo/941864/",
+      "nota": "Interior comedor stock"
+    },
+    {
+      "file": "demo-moderno.jpg",
+      "rol": "galeria_c",
+      "fuente": "unsplash",
+      "url": "https://unsplash.com/photos/photo-1559339352-11d035aa65de",
+      "nota": "Ambiente restaurante contemporáneo"
+    },
+    {
+      "file": "comparador-demo-a.jpg",
+      "rol": "comparador",
+      "derivado_de": "demo-hero.jpg"
+    },
+    {
+      "file": "comparador-demo-b.jpg",
+      "rol": "comparador",
+      "derivado_de": "demo-interior.jpg"
+    },
+    {
+      "file": "comparador-demo-c.jpg",
+      "rol": "comparador",
+      "derivado_de": "demo-moderno.jpg"
+    }
+  ]
+}
