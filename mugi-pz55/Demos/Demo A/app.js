@@ -1,5 +1,5 @@
 (function () {
-  const d = LA_ALHONDIGA;
+  const d = window.SITE_DATA || window.MUGI;
   const imgHero = document.getElementById("img-hero");
   imgHero.src = d.images.hero;
   imgHero.alt = "Mugi - tasca en la calle Pozas, Bilbao";
@@ -51,6 +51,12 @@
 
   const barT = document.getElementById("bar-text");
   if (barT && d.barBlock) barT.textContent = d.barBlock.texto;
+  if (d.qrPanel) {
+    const qt = document.getElementById("qr-title");
+    const qx = document.getElementById("qr-text");
+    if (qt) qt.textContent = d.qrPanel.titulo || qt.textContent;
+    if (qx) qx.textContent = d.qrPanel.texto || qx.textContent;
+  }
   const hRes = document.getElementById("h-reservar");
   if (hRes && d.reserva?.titulo) hRes.textContent = d.reserva.titulo;
   initFaqAndReservaOpcional(d);
