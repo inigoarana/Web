@@ -48,7 +48,7 @@ Las demos son **una página con anclas**, no un sitio multipágina ni tienda con
 - **Carta · «En la barra»:** el bloque de barra/pintxos va **dentro de `#carta`** como subapartado (`h3` + párrafo), no como sección hermana entre horario y reserva.
 - **Grupos y reserva (hostelería):** en **un solo** `#reservar`: primero **Grupos y mesas** (`h2` + texto coherente con solicitud online **y** formulario `#contacto`), acto seguido **Solicitud de reserva** (`h3` + formulario). **Prohibido** copy que implique «solo teléfono» si hay reserva online; la confirmación sigue siendo por teléfono, pero la intención se captura en web.
 - **Demo A · hero cinema:** `.hero--cinema` + `.hero-bg` + `.hero-overlay` + `.hero-inner--center` dentro de `.wrap`; `min-height` ~68vh; gradiente sobre foto; texto blanco; botones centrados (**Ver carta** + **`tel:`** en ghost; no duplicar «Reservar» en hero si ya está en nav). Paleta del local en CTAs (p. ej. acento cálido sobre overlay). Validar portátil y monitor ancho — el copy **no** debe desplazarse a un lateral.
-- **Móvil:** además del teléfono en nav, barra fija opcional **Llamar** + **Cómo llegar** (`conversion-principios.css` + `data-mobile-contact`); respetar `prefers-reduced-motion`.
+- **Móvil:** menú principal en **hamburguesa** (desplegable con todas las secciones) vía `initMobileNav`; además barra fija opcional **Llamar** + **Cómo llegar** (`conversion-principios.css`); respetar `prefers-reduced-motion`. Escritorio: enlaces en fila.
 - **Demo A:** utilitaria con **suelo premium** (tipografía, aire, hero con CTA claro); no clonar el look editorial de C.
 - **Demo B:** mismo recorrido de conversión que A; distinto relato visual.
 - **Demo C:** máxima expresión editorial (eyebrows, esquinas rectas, contacto tipo revista).
@@ -183,7 +183,11 @@ Usa una base técnica sencilla y estática. Si el proyecto ya tiene un stack, re
 
 Crea `demos/demo-a/`, `demo-b/`, **`demo-c/`**, `demos/assets/` y un **comparador** `demos/index.html` con **tres** entradas (A, B, C). Evita grandes frameworks o dependencias solo para parecer profesional.
 
-**Comparador (`demos/index.html`):** títulos de tarjeta **fijos por tipo** (no sustituir por nombre de calle del local): **Demo A · Informativa**, **Demo B · Story telling**, **Demo C · Moderno**. Cada tarjeta: imagen de preview (aspecto 16:10), párrafo breve del enfoque del negocio y enlace «Abrir demo X». **Imágenes del comparador:** `comparador-demo-a.jpg`, `comparador-demo-b.jpg`, `comparador-demo-c.jpg` — normalmente **derivados** de `demo-hero`, `demo-interior` (o `demo-barra` si encaja mejor con B) y `demo-moderno`, con temática alineada a cada tipo (informativa / storytelling / moderno); **no** SVG genéricos ni hotlink. **`alt`** descriptivo del sector del local (no «cafetería» genérico si es restaurante o bar de copas). Registrar en `manifest.json`. Mantener disclaimer `*Imágenes de ejemplo sacadas de internet` en el comparador.
+**Comparador (`demos/index.html`):** títulos de tarjeta **fijos por tipo** (no sustituir por nombre de calle del local): **Demo A · Informativa**, **Demo B · Story telling**, **Demo C · Moderno**. Cada tarjeta: imagen de preview (aspecto 16:10), párrafo breve del enfoque del negocio y enlace «Abrir demo X». **Imágenes del comparador:** `comparador-demo-a.jpg`, `comparador-demo-b.jpg`, `comparador-demo-c.jpg` — normalmente **derivados** de `demo-hero`, `demo-interior` (o `demo-barra` si encaja mejor con B) y `demo-moderno`, con temática alineada a cada tipo (informativa / storytelling / moderno); **no** SVG genéricos ni hotlink. **`alt`** descriptivo del sector del local (no «cafetería» genérico si es restaurante o bar de copas). Registrar en `manifest.json`. Mantener disclaimer `*Imágenes de ejemplo sacadas de internet` en el comparador. **Autonomía para compartir:** el comparador **no** enlaza rutas fuera de `demos/` (p. ej. `../04-comparativa.md`); la documentación de campaña vive en la raíz del expediente, no en el ZIP al cliente.
+
+**Skip link (A/B/C):** en las **tres** variantes, justo tras el disclaimer de imágenes, enlace **«Saltar al contenido»** (`class="skip-link"`) hacia el primer bloque principal (`#contenido`, `#historia` o `#carta` en C). Estilos focus visibles (ver `demo-a/styles.css` o `a11y-access.css`).
+
+**Terraza en UI:** si `02-datos-negocio.json` → `hechos.terraza` está documentada con fuente (etapa 2), permitir mención en **placeholder** de notas de reserva («Terraza, cumpleaños…»), **FAQ** y galería **`images.terraza`** en Demo C. No inventar aforo ni prometer disponibilidad; respetar `prohibido_ui` para lo demás (precios, agregadores).
 
 Requisitos:
 - Diseño móvil y escritorio, navegación por teclado, contraste y jerarquía legible.
@@ -197,7 +201,7 @@ Requisitos:
 
 QA proporcional: abrir y revisar **A, B y C** en móvil/escritorio si las herramientas lo permiten, comprobar navegación, enlaces, scroll reveal en C, carga de activos locales, calidad visual y coherencia con el brief. Corregir fallos evidentes. Si no puedes verlas, declara «revisión visual pendiente» en `04-nota-demo.md`; no afirmes que está validada. No construyas una suite extensa de tests para esta demo.
 
-**Checklist pre-cierre (bloqueante si falla):** contrastar demo con `02-datos-negocio.json` → `entradas_demo.conversion_2026` y **`prohibido_ui`** (ningún texto prohibido en pantalla); `a11y-access.css` presente en las tres variantes; **`faq-init.js`** + `#preguntas` en A/B/C (o omisión justificada en nota); FAQ acordeón operativo; precios confirmados con esquema `price`/`desc` cuando existan; **`<meta name="color-scheme" content="light">`** en diseños de fondo claro; eslóganes de tradición/retorno **solo** si el brief respalda antigüedad o relato — si no, revisar copy de apertura/nuevo local; **un CTA primario** en hero; contacto + FAQ en orden de cierre acordado; **sin avisos duplicados** (Reservar vs FAQ vs horario); enlaces a `#contacto` donde el copy cite formulario de contacto; barra móvil contacto si el pack usa `conversion-principios.css`.
+**Checklist pre-cierre (bloqueante si falla):** contrastar demo con `02-datos-negocio.json` → `entradas_demo.conversion_2026` y **`prohibido_ui`** (ningún texto prohibido en pantalla); **`skip-link`** en A, B y C; comparador sin enlaces fuera de `demos/`; `a11y-access.css` presente en las tres variantes; **`faq-init.js`** + `#preguntas` en A/B/C (o omisión justificada en nota); FAQ acordeón operativo; precios confirmados con esquema `price`/`desc` cuando existan; **`<meta name="color-scheme" content="light">`** en diseños de fondo claro; eslóganes de tradición/retorno **solo** si el brief respalda antigüedad o relato — si no, revisar copy de apertura/nuevo local; **un CTA primario** en hero; contacto + FAQ en orden de cierre acordado; **sin avisos duplicados** (Reservar vs FAQ vs horario); enlaces a `#contacto` donde el copy cite formulario de contacto; barra móvil contacto si el pack usa `conversion-principios.css`.
 
 Entrega **`04-nota-demo.md`**, **`04-comparativa.md`**, **`04-alcance-aceptado.json`**: concepto de **las tres** variantes, objetivo, diferencias A/B/C, evidencias, hipótesis, **demo recomendada para comercial** (una de las tres, con motivo) y matriz de IDs. Guarda capturas si hay herramienta disponible. Etapas posteriores usan la recomendada pero conocen el pack completo.
 
@@ -213,3 +217,12 @@ Un carrito, pedido, pago, reserva o programa de fidelización nuevo se represent
 
 ## Checklist compartida
 Trabajar solo sobre el ID activo, con Decisión selección=Seleccionado y columnas previas en Sí con evidencias vigentes. Al completar y guardar todas las salidas, marcar 4 Demo=Sí. Si falla o requiere revisión mantener No y motivo. No marcar otra etapa ni cambiar decisiones de Selección. En Rehacer archivar versión y poner No solo en las etapas descendientes afectadas; conservar fechas/historia en estado. Un Sí sin archivos/versiones válidos se reconcilia antes de continuar.
+
+## Entrega HTML · reglas reutilizables (supervisor /9)
+
+- **HTML cliente:** no atributos `data-val` ni metadatos VAL en demos publicables; trazabilidad en `04-comparativa.md`.
+- **`content.js`:** objeto global **`SITE_DATA`** (+ alias `window.MUGI`); no nombres de otros expedientes en la constante.
+- **Comparador autónomo** (sin `../04-*.md`).
+- **`alt` en JS:** sin términos prohibidos en copy visible (p. ej. «salón»).
+- **Móvil (≤768px):** menú **hamburguesa** (tres barras) que despliega todas las anclas; en escritorio, barra horizontal. Implementación compartida: `site-cierre.js` → `initMobileNav` + estilos en `site-chrome.css`.
+- **Redes cabecera:** `headerSocialDemo` puede mostrar iconos de ejemplo en preview; en producción, solo canales verificados.
