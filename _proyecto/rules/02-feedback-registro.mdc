@@ -1,0 +1,14 @@
+---
+description: Registrar en feedback.md los cambios acordados en skills, reglas y prompts.
+alwaysApply: true
+---
+Cuando el usuario pida **cambios o preferencias** que afecten a skills (`skills/`), reglas (`rules/`), protocolo transversal o criterios de producto reutilizables, **actualizar también** `operacion/feedback.md` en la misma sesión o inmediatamente después.
+
+## Skill vs feedback
+
+- **`operacion/feedback.md`:** registro **amplio** — preferencias, acuerdos, contexto y **qué/por qué** (genérico, sin atar a un expediente concreto). Aplica a todo lo acordado con el usuario, no solo a una etapa.
+- **Skill de la etapa afectada** (`skills/<etapa>/SKILL.md`): **obligatorio en la misma sesión** cuando el cambio altere **cómo se ejecuta** esa etapa (diseño, copy, checklist, entregables, QA). Documentar **pautas genéricas** reutilizables: medidas, orden de bloques, prohibiciones, criterios de aceptación. **No** dejar la norma solo en un expediente de prueba ni redactar la skill «a medida» de un negocio (sin nombres, IDs ni rutas de expediente salvo referencia de composición ya establecida).
+- **Reglas** (`rules/`): matizar aquí obligaciones transversales (como este skill vs feedback); el detalle operativo de una etapa sigue en su skill.
+- Los detalles técnicos de implementación (selectores CSS, nombres de archivo) pueden vivir en la skill; en `feedback.md` va el **qué** y **por qué** acordado.
+- Un expediente concreto puede servir de **prueba**; la fuente de verdad para futuros `/N-skill` es la skill actualizada, no el HTML de ese expediente.
+- No sustituye skills ni Excel en ejecución; `feedback.md` es trazabilidad histórica para humanos y futuros agentes.
