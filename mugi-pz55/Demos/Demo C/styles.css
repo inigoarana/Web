@@ -37,6 +37,19 @@ a { color: inherit; }
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,0,0); border: 0;
 }
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 400;
+  background: #fff;
+  color: var(--tinta);
+  padding: 0.5rem 1rem;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  top: 3rem;
+}
 
 .site-top-bar {
   background: var(--accent-deep);
