@@ -1,5 +1,5 @@
 (function () {
-  const d = LA_ALHONDIGA;
+  const d = window.SITE_DATA || window.MUGI;
   document.getElementById("deck").textContent = d.deckLine || d.propuesta;
   const sh = document.getElementById("story-heading");
   if (sh) sh.textContent = d.storyHeading || `${d.brand} - ${d.tagline}`;
