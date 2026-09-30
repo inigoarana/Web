@@ -1,12 +1,10 @@
 /** Datos compartidos Mugi - indh010 - demos A/B/C */
-const LA_ALHONDIGA = {
+const SITE_DATA = {
   brand: "Mugi",
   tagline: "Licenciado Poza 55 - Bilbao",
   heroEyebrow: "Pozas, desde la barra.",
   footerTagline: "Te esperamos en la barra.",
   footerSector: "Tasca - Bilbao",
-  /** Si se define, misma lista en A/B/C; si no, el pie clona .site-nav-menu de cada demo (p. ej. Carta -> #barra en B). */
-  footerNav: null,
   address: "Licenciado Poza, 55, 48013 Bilbao",
   phoneDisplay: "944 413 016",
   phoneTel: "tel:+34944413016",
@@ -127,6 +125,10 @@ const LA_ALHONDIGA = {
       q: "¿Puedo venir solo a tomar un pintxo?",
       a: "Si. La barra esta abierta para pintxos y copas; tambien servimos en mesa cuando reservas.",
     },
+    {
+      q: "¿Teneis terraza?",
+      a: "Si, disponemos de terraza segun temporada. Indicalo en la reserva o pregunta al llamar al 944 413 016.",
+    },
   ],
   reserva: {
     diasSemanaCerrados: [6],
@@ -155,5 +157,6 @@ const LA_ALHONDIGA = {
     terraza: "../assets/demo-moderno.jpg",
   },
 };
-window.LA_ALHONDIGA = LA_ALHONDIGA;
-window.MUGI = LA_ALHONDIGA;
+window.SITE_DATA = SITE_DATA;
+window.MUGI = SITE_DATA;
+
