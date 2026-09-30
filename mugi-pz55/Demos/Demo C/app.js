@@ -1,5 +1,5 @@
 (function () {
-  const d = LA_ALHONDIGA;
+  const d = window.SITE_DATA || window.MUGI;
   const heroImg = document.getElementById("hero-img");
   heroImg.src = d.images.hero;
   heroImg.alt = "Ambiente de barra del Mugi";
@@ -9,8 +9,8 @@
   if (gallery && d.images) {
     const shots = [
       { src: d.images.barra, label: "Barra", alt: "Detalle de barra y cafe" },
-      { src: d.images.interior || d.images.hero, label: "Ambiente", alt: "Salon del local" },
-      { src: d.images.terraza, label: "Estilo", alt: "Espacio contemporaneo" },
+      { src: d.images.interior || d.images.hero, label: "Ambiente", alt: "Ambiente del local en Licenciado Poza" },
+      { src: d.images.terraza, label: "Terraza", alt: "Terraza del local en Licenciado Poza" },
     ];
     shots.forEach(({ src, label, alt }) => {
       const fig = document.createElement("figure");
