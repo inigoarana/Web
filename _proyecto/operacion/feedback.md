@@ -6,9 +6,145 @@ Las entradas nuevas de **preferencias de producto** (demos, comercial, tono) deb
 
 ---
 
+## 2026-09-30 · Demo · hero A, carta, grupos/reserva, contacto y FAQ (pautas comunes A/B/C)
+
+- **Hero Demo A:** patrón **cinema** a ancho completo (ref. Poza 42 / `0047_Poza42`) — overlay, copy centrado, «Ver carta» + teléfono; evitar split imagen|panel blanco salvo petición explícita.
+- **Sin repetir portada:** no volver a pegar `propuesta`/titular del hero en un bloque intro inferior; avisos (p. ej. dominio) en carta o FAQ.
+- **Carta:** «En la barra» como **subapartado** dentro de Carta (`h3`), no sección suelta.
+- **Grupos + reserva:** un solo `#reservar` — «Grupos y mesas» seguido de «Solicitud de reserva»; copy coherente con reserva online **y** `#contacto` (confirmación por teléfono, no «solo llamad»).
+- **Contacto:** layout Joserra — dos columnas, **visual** (imagen + frase) en columna izquierda; altura izquierda **≤** caja del formulario (imagen compacta en desktop); `fillContactBlock` obligatorio.
+- **Grupos:** mención al formulario de contacto → enlace `#contacto` vía `fillGruposBlocks` / `data-grupos-text`.
+- **FAQ:** mismo `.site-contact-layout` que contacto (no flush izquierda del viewport).
+
+---
+
+## 2026-09-30 · Demo · FAQ estándar y handoff /3 → /4
+
+- **`/4-demo`:** en packs nuevos, cierre **mapa → contacto → FAQ acordeón** (`#preguntas`, `faq-init.js`) en A/B/C cuando haya visita presencial y Q&A publicables; formato «Antes de venir» en hostelería.
+- **`/3-comercial-innovador`:** no genera `faqItems`; los VAL marcan secciones y temas; opcional `faq_temas_sugeridos` en depuración.
+- **`/2-webscraper`:** puede listar temas FAQ en brief para etapa 4.
+
+---
+
+## 2026-09-30 · Demo · sección Reservar sin avisos duplicados
+
+- **No** combinar `reservaTelefonosNota` y `reservaWalkInLead` con el mismo mensaje (teléfono/grupos/sin reserva).
+- Si el texto cita el **formulario de contacto**, enlace obligatorio a **`#contacto`** (`fillReservaWalkInLead` en `site-cierre.js`).
+
+---
+
+## 2026-09-30 · Demo · horario con fuentes en conflicto
+
+- Si brief/fuentes **no coinciden**, la demo muestra el horario **más probable** en tabla (tramos concretos) y **un** aviso en cursiva: «*Puede estar sujeto a cambios».
+- **No** avisar en UI que hay duda ni pedir llamar solo para confirmar horario; reservar teléfono para reservas/grupos u otros VAL.
+
+---
+
+## 2026-09-30 · Demo · FAQ acordeón «Antes de venir»
+
+- **Comportamiento:** solo la pregunta visible al cargar; al clic, `<details>` nativo despliega la respuesta (no listas `<dl>` fijas).
+- **Implementación:** `#faq-list` + `faq-init.js` genera `summary` + `.faq-answer`; titular desde `faqHeading`.
+- **Estilo:** titular serif por variante; filas con triángulo ▶, separadores finos, fondo crema suave en la sección.
+
+---
+
+## 2026-09-30 · Demo · contacto tipográfico, formulario y mapa embebido
+
+- **`skills/4-demo/SKILL.md`:** contacto — titular/lead con tipografía de cada variante (A/B/C); rejilla formulario 2fr/3fr y fila Nombre/Correo con más espacio para email. Mapa — embed con **zoom calle** (`z=17`), dirección en negrita sobre iframe, contenedor redondeado con sombra; `mapEmbedSrc()` en `site-cierre.js`.
+- **Implementación compartida:** `operacion/plantillas-demo/shared/` y packs en `demos/shared/` (no iframe sin `z`).
+
+---
+
+## 2026-09-30 · Demo · principios conversión y pack dual
+
+- **`skills/4-demo/SKILL.md`:** bloque **Principios transversales (producto y conversión)** — jerarquía en una página, contacto editorial 2 columnas, FAQ «Antes de venir» tras contacto, barra móvil Llamar/Cómo llegar, sin alcance tienda/multipágina/legal.
+- **Cierre de página:** orden mapa → contacto → FAQ → pie; mailto veraz (no «Mensaje enviado» si solo abre correo).
+- **Comparación skill:** snapshot `demos-pack-skill-actual/` vs pack vigente `demos/` + `comparador-dual.html` y `04-comparativa-skill-packs.md` cuando el usuario pida contrastar implementaciones.
+
+---
+
+## 2026-09-30 · Demo · esloganes de mesa y coherencia con apertura
+
+- **`skills/4-demo/SKILL.md`:** en hostelería/comedor, **cuelan** en hero, bandas B/C, «Te esperamos» o pie **una o dos frases** cortas tipo campaña (dos tiempos separados por punto), con banco de referencia peninsular («Sabor de aquí…», «Cocina honesta…», «[Localidad], con mucho gusto», etc.).
+- **Datos:** `tagline` = dirección corta; eslogan en `heroEyebrow`, `deckLine`, `footerTagline`; cableado en `demo-a/b/c/app.js`. **`footerTagline` no debe repetir** calle/número de `tagline` (el pie los concatena). QA opcional: `scripts/prueba-esloganes-demo.ps1`.
+- **Demo C carta:** no mostrar chips de `servicios` (Pintxos/Brasa/…) bajo el intro; preferencia usuario Mugi — queda genérico.
+- **Pie demos:** `site-footer--rich` obligatorio en A/B/C; navegación vía **`footerNav`** en datos o clon del menú de la variante (anclas distintas por demo permitidas).
+- **No** saturar la página ni repetir el mismo eslogan en las tres variantes.
+- **Local nuevo o sin historia verificada:** prohibido copy de **tradición inventada** («de siempre», «para volver», «como siempre»); priorizar presente, producto, barrio y honestidad. Tradición solo si el brief confirma antigüedad o relato creíble.
+- **`skills/2-webscraper/SKILL.md`:** en Entradas para Demo, **`antiguedad_relato`** (`establecido` | `nuevo` | `cambio_marca` | `desconocido`) y esloganes opcionales alimentan etapa 4; storytelling B sin «siempre» en aperturas nuevas.
+
+---
+
+## 2026-09-30 · Comercial · folleto A4 único (HTML + PDF)
+
+- **`skills/5-comercial/SKILL.md`**: /5 produce **solo** `05-propuesta-cliente.html` + `05-propuesta-cliente.pdf` (propuesta + infografía integrada). `SKILL v2.md` redirige al mismo archivo.
+- **No** generar en /5: infografía separada, borrador Instagram, notas de validación (etapa 7 u otra invocación).
+- **Rehacer:** HTML/CSS **desde cero**; no parches sobre estilos antiguos.
+- **Composición aprobada (5 zonas):** cabecera + hero con mockup navegador; «Qué suma» (3 columnas sin cajas) + recorrido en pastilla gris con iconos a color; tabla «Qué incluye»; miniaturas reales A/B/C desde assets de demo; «Antes…» + CTA en caja verde clara (no banda oscura con texto blanco).
+- **Tipografía:** marca y titular hero en serif verde; cuerpo sans ~9–9,5 pt. Sin terracota ni degradados del modelo antiguo de ocho bloques.
+- **PDF:** A4, escala 1, **prohibido** `transform: scale()` en impresión (evita folleto comprimido). QA visual obligatorio (una página, sin recortes). Herramienta ya instalada (p. ej. Edge headless); si no hay revisión, **5 Comercial=No**.
+- Imágenes: carpeta `05-propuesta-assets/` con comparador y captura de demo; detalle en la skill.
+- **Orden de bloques (folleto):** tras el hero, **«Tres estilos para elegir»** antes de **«Qué suma a lo que ya tenéis»** (luego recorrido, tabla, cierre).
+- **Copy bajo el titular hero:** **lead** corto positivo (identidad del local + vitrina más clara/atractiva), desde brief /2; **demos gratuitas** + **kicker** sin compromiso; sin caja crema; «mismo alcance» solo en bloque estilos. No abrir con queja de móvil.
+- **Espaciado folleto:** `--block-gap: 1cm` en `.sheet` + `section.doc-block` por zona; cierre (antes + CTA) en un solo bloque. Detalle en `skills/5-comercial/SKILL.md` (referencia 0041 v006+).
+- **Folleto (/5 skill, no atar a un expediente):** mockup hero **~158 px** fijo (`top center`); **no** «Adaptado a móvil» en «Qué incluye»; CTA fondo verde claro pero **título `--ink`** y copy profesional; QA tipografía (Georgia marca+hero+lead / Segoe cuerpo, o sans única si lo piden). Pruebas en expedientes concretos no sustituyen la skill.
+- **Captura hero mockup:** debe mostrar **titular + imagen** del masthead en la misma vista (menos zoom: captura **escritorio ancha**, p. ej. 1280 px); **no** usar captura móvil estrecha con `object-fit: cover` (recorta solo la columna de texto). Recorte CSS: `object-position: top center`.
+- **Miniaturas A/B/C (bloque estilos):** un poco más altas para que se lean mejor en PDF — **`height: calc(62px + 0.5cm)`** en `.style-item img` (pauta en `skills/5-comercial/SKILL.md`); priorizar **1 A4** acortando texto en otros bloques antes de reducir altura.
+
+## 2026-09-30 · Meta · skill vs feedback al cambiar preferencias
+
+- Si el usuario afina **cómo se ejecuta una etapa**, actualizar **siempre** la skill correspondiente con **pautas genéricas** (misma sesión), además de **`operacion/feedback.md`**.
+- **Feedback** = registro amplio (qué/por qué); **skill** = contrato operativo reutilizable. No dejar normas solo en un expediente de prueba. Regla: `rules/02-feedback-registro.mdc`.
+
+---
+
+## 2026-09-30 · Expedientes · `demos/` e `infografia/`
+
+- **Producto visible** en subcarpetas: **`demos/`** (comparador + A/B/C) e **`infografia/index.html`**.
+- Resto de archivos de etapas (`01-*` … `07-*`, JSON, propuesta/mensaje en raíz) **sin mover**.
+- Resolución de rutas: `scripts/expediente_rutas.ps1`; migración: `scripts/migrar-demos-infografia-carpetas.ps1`. Legacy `04-demos/` y `05|06-infografia-valor.html` solo hasta migrar.
+
+---
+
+## 2026-09-29 · Mantenimiento · `/X-Eliminar_Basura`
+
+- Skill **`skills/X-Eliminar_Basura/`**: elimina artefactos temporales de `operacion/` y `.cursor-*.xlsx` en raíz con **más de 24 h** vía `scripts/eliminar_basura.ps1`.
+- **Nunca** eliminar: **`expedientes/`**, **`Registro_Negocios.xlsx`**, **`skills/`**, **`rules/`**, **`config/`**, **`scripts/`**, **`README.md`**, **`feedback.md`** y resto del núcleo de **`operacion/`** (protocolo, estado, investigación por lotes, plantillas demo).
+- Conservar siempre **`operacion/cambios-excel.json`**, protocolo, estado y núcleo operativo.
+- Modo **` -Todo`**: limpieza inmediata de toda la basura listada (solo bajo petición explícita).
+- Patrones ignorados por git en `.gitignore`; regla en `rules/05-estructura-proyecto.mdc`.
+
+---
+
+## 2026-09-29 · Estructura · `rules/`, `skills/` en raíz; sin `catalogo/`
+
+- **Canónico:** `rules/` y `skills/` en la raíz de `Cursor_Web`; `config/proyecto.json` → `rutas.rules` / `rutas.skills`.
+- **`.cursor/`** solo enlaces al IDE; no duplicar contenido ni recrear `catalogo/`.
+- **`servicios-opcionales.md`** (IDs EXT) solo en **`skills/3-comercial-innovador/`** — usado por `/3-comercial-innovador` (no por otras etapas).
+- Publicación `_proyecto/` sincroniza `rules/` y `skills/` (no `.cursor/…`).
+- Regla: `rules/05-estructura-proyecto.mdc`.
+
+---
+
+## 2026-09-29 · Limpieza repo · Excel único y sin `.tools`
+
+- Eliminar **`.tools/`** (Node portable); no forma parte del flujo (Excel COM + PowerShell + API GitHub).
+- **Un solo `.xlsx` operativo** en el proyecto: `Registro_Negocios.xlsx`; no acumular `versiones_excel/` ni `.cursor-*.xlsx` en la raíz.
+- Reglas: `rules/01-registro-excel.mdc`, `03-sin-instalaciones.mdc`; helper `scripts/registro_excel.ps1` sin respaldos fechados en disco del repo.
+
+---
+
+## 2026-09-28 · Demo A · plantillas Wix/Figma e imágenes stock
+
+**Demo A** debe generarse a partir de **layouts de plantillas Wix o Figma Community** que encajen con la casuística del negocio (restaurante mediodía, bar de copas, café, etc.), **reimplementados** en HTML/CSS estático — sin créditos Wix/Figma en UI. Mapa de perfiles: `operacion/plantillas-demo/DEMO-A-WIX-FIGMA.md`; skill `/4-demo` actualizada.
+
+Si no hay **imágenes atractivas** del local, usar stock de **Unsplash**, **Pexels** y **Pixabay** (descarga local, trazabilidad en `manifest.json` / `04-nota-demo.md`; aviso UI de imágenes de ejemplo). Prioridad sigue siendo foto real del establecimiento cuando exista. Tras descargar, **comprobar visualmente** que la foto encaja (el número de foto en Pexels no garantiza el contenido). **Pixabay:** a menudo bloquea descarga directa por CDN; bajar desde el navegador si hace falta.
+
+Prueba inicial en dos perfiles distintos (restaurante clásico vs bar de ron/cócteles): skins `demo-a--wix-fine-dining` y `demo-a--wix-cocktail-bar`. Criterio de imágenes stock (slots, verificación visual, Pixabay, comparador) incorporado en skill **`/4-demo`** y `operacion/plantillas-demo/DEMO-A-WIX-FIGMA.md`.
+
 ## 2026-09-28 · Comercial · español y bloque «Cómo encaja»
 
-Piezas al cliente en **español de España neutro**. Evitar **«salón»** en copy visible; usar barra, local, restaurante o reserva por teléfono. Regla: `.cursor/rules/04-espanol-piezas-cliente.mdc`; skill `/5-comercial` (tono + infografía).
+Piezas al cliente en **español de España neutro**. Evitar **«salón»** en copy visible; usar barra, local, restaurante o reserva por teléfono. Regla: `rules/04-espanol-piezas-cliente.mdc`; skill `/5-comercial` (tono + infografía).
 
 En `05-infografia-valor.html`, la sección **Cómo encaja con lo que ya tenéis** debe seguir el patrón de tres pasos (referencia expediente bar Joserra): píldoras de canales **reales** del negocio; búsqueda con **nombre del local**; paso web = **sitio + carta/menú + horario**; cierre = vienen o llaman/reservan (barra en bar).
 
@@ -43,7 +179,7 @@ Con **45** investigados, se barrieron las **28** filas con **Presencia web = Pro
 
 ## 2026-09-28 · Entorno · prohibición de instalaciones
 
-El usuario exige **jamás instalar** software ni dependencias en su equipo (salvo petición explícita puntual). Regla: `.cursor/rules/03-sin-instalaciones.mdc`. Compartir demos: no `file://`; preferencia **GitHub Pages** (repo de previews, un slug por negocio, enlace no obvio + `noindex`) sin instalar CLIs; alternativa ZIP + OneDrive o Netlify Drop en navegador. Skill: **`/8-publicar-demos Go`** (el agente sube vía API; credencial GitHub **solo** en `operacion/github-publish.local.json`, en `.gitignore` — **nunca** en `feedback.md`, chat ni commits). Alias: `/publicar-demos-preview`.
+El usuario exige **jamás instalar** software ni dependencias en su equipo (salvo petición explícita puntual). Regla: `rules/03-sin-instalaciones.mdc`. Compartir demos: no `file://`; preferencia **GitHub Pages** (repo de previews, un slug por negocio, enlace no obvio + `noindex`) sin instalar CLIs; alternativa ZIP + OneDrive o Netlify Drop en navegador. Skill: **`/8-publicar-demos Go`** (el agente sube vía API; credencial GitHub **solo** en `operacion/github-publish.local.json`, en `.gitignore` — **nunca** en `feedback.md`, chat ni commits). Alias: `/publicar-demos-preview`.
 
 ## 2026-09-28 · Demo B · gancho legible
 
@@ -92,7 +228,7 @@ Feedback acumulado de revisión de demos (utilitaria + narrativa). **Aplica a De
 
 ### Proceso del proyecto
 
-13. **feedback.md:** toda indicación acordada que cambie skills, reglas o criterios de producto debe quedar registrada aquí (ver regla `.cursor/rules/02-feedback-registro.mdc`). Preferencias de producto en texto genérico; lo técnico puede detallarse en la skill correspondiente.
+13. **feedback.md:** toda indicación acordada que cambie skills, reglas o criterios de producto debe quedar registrada aquí (ver regla `rules/02-feedback-registro.mdc`). Preferencias de producto en texto genérico; lo técnico puede detallarse en la skill correspondiente.
 
 ### Refinamiento Demo A (misma sesión)
 
@@ -121,9 +257,9 @@ Feedback acumulado de revisión de demos (utilitaria + narrativa). **Aplica a De
 
 ## Handoff · nuevo agente (2026-09-28)
 
-**Autoridad en ejecución:** `operacion/PROTOCOLO.md` (v4), `operacion/REGISTRO_EXCEL.md`, skills en `.cursor/skills/`, regla `.cursor/rules/00-flujo-manual.mdc`, **`Registro_Negocios.xlsx`** (ruta en `config/proyecto.json` → `registro_excel.ruta`).
+**Autoridad en ejecución:** `operacion/PROTOCOLO.md` (v4), `operacion/REGISTRO_EXCEL.md`, skills en `skills/`, regla `rules/00-flujo-manual.mdc`, **`Registro_Negocios.xlsx`** (ruta en `config/proyecto.json` → `registro_excel.ruta`).
 
-**Estructura:** negocios en `expedientes/NNNN_Slug`; operación en `operacion/` (ALCANCE, estado, activo, investigación). **No** usar ni recrear `campana/` ni `campanas/`. Un solo Excel maestro en la raíz; respaldos en `versiones_excel/`; ignorar/borrar `.cursor-*.xlsx` temporales si aparecen.
+**Estructura:** negocios en `expedientes/NNNN_Slug`; operación en `operacion/` (ALCANCE, estado, activo, investigación). **No** usar ni recrear `campana/` ni `campanas/`. **Un solo Excel** en la raíz (`Registro_Negocios.xlsx`); sin `versiones_excel/` ni `.cursor-*.xlsx` persistentes; borrar huérfanos si aparecen.
 
 **Skills (orden vigente):** `/1-investigacion-mercado` → `/2-webscraper` → `/3-comercial-innovador` → `/4-demo` → `/5-comercial` → `/6-valoracion-impacto` → `/7-mensajero`. **No existe `/2-seleccion`.** Invocar `/N-skill` sin texto = Go (`skill_sin_go_ejecuta: true`); Go aislado no ejecuta.
 
@@ -272,7 +408,7 @@ Feedback acumulado de revisión de demos (utilitaria + narrativa). **Aplica a De
 ## 2026-09-28 · Estructura · sin campana/campanas; Excel único
 
 - Eliminar carpetas **`campana/`** y **`campanas/`**; todo negocio en **`expedientes/`**; operación en **`operacion/`** (ALCANCE, INDICE investigación, estado).
-- **Un solo Excel maestro:** `Registro_Negocios.xlsx` en la raíz del proyecto (`config/proyecto.json`); borrar Excels temporales **`.cursor-*.xlsx`**; respaldos solo en **`versiones_excel/`**.
+- **Un solo Excel maestro:** `Registro_Negocios.xlsx` en la raíz (`config/proyecto.json`); **no** mantener `versiones_excel/` ni otros `.xlsx` en el repo; eliminar **`.cursor-*.xlsx`** huérfanos; el helper guarda con reemplazo atómico sin respaldo en disco del proyecto.
 
 ---
 
@@ -302,11 +438,11 @@ Feedback acumulado de revisión de demos (utilitaria + narrativa). **Aplica a De
 
 ## 2026-09-28 · Publicar demos · estructura cliente y sync repo
 
-En **`/8-publicar-demos`**, cada negocio en el repo `Web` debe usar **dos carpetas clicables** bajo el slug (más portal índice): **`Infografia/`** (solo infografía; **no** subir propuesta HTML al remoto) y **`Demos/`** (comparador + **Demo A**, **Demo B**, **Demo C**). Portal `{slug}/index.html` enlaza a ambas.
+En **`/8-publicar-demos`**, cada negocio en el repo `Web` debe usar **dos carpetas clicables** bajo el slug (más portal índice): **`Infografia/`** (solo infografía; **no** subir propuesta HTML al remoto) y **`Demos/`** (comparador + **Demo A**, **Demo B**, **Demo C**). Portal `{slug}/index.html`: **dos tarjetas** (Infografia + **Demos** con copy «Tres propuestas de web (A, B, C) y acceso a cada una» → `Demos/`); no separar Demo A del comparador en el portal.
 
 En **cada publicación**, sincronizar también **`_proyecto/`** en el mismo repo (fuera del slug): skills, rules, `operacion/feedback.md` y `Registro_Negocios.xlsx` — ver `config/publicar-demos.json` → `sync_proyecto`.
 
-Preview en GitHub: textos del slug **sin tildes** (ASCII) en portal, infografia y demos publicadas; expediente local puede llevar tildes.
+Preview en GitHub: slug **sin tildes en vocales**; **conservar `¿` y `¡`**; expediente local puede llevar tildes completas.
 
 ## 2026-09-28 · Publicar demos · datos JS y cache del navegador
 
@@ -315,3 +451,17 @@ En **`shared/content.js`** (demos), evitar **comillas tipograficas** (`«»`) de
 En cada **`/8-publicar-demos`**, anadir **`?v=`** (timestamp de build) a los `<script src="../shared/*.js">` de Demo A/B/C para forzar recarga de `content.js` tras correcciones. Portal cliente: **`{pages_base}/{slug}/index.html`** con **dos tarjetas**: Infografia + **Demos** (texto «Tres propuestas de web (A, B, C) y acceso a cada una» → comparador `Demos/`).
 
 Al publicar sin tildes en vocales, **mantener `¿` y `¡`** (FAQ y exclamaciones); no convertir a `?`/`!` al inicio de pregunta.
+
+## 2026-09-29 · Brief → demo · conversión y verdad UI
+
+Etapa **2:** `entradas_demo.conversion_2026` (precio tabular, CTAs, reserva, `prohibido_ui`); subapartado **Jerarquía móvil 2026**; reverificar web oficial si el brief >7 días. Etapa **3:** tabla **Representación demo 2026** en MD; `representacion_demo.mobile_first`; gate coherencia depuración→VAL. Etapa **4:** `cartaItems` `{ name, price, desc }`, `operacion/plantillas-demo/shared/a11y-access.css`, horario con `tel:` si «consultar por teléfono», checklist pre-cierre vs brief, `color-scheme` en UI clara.
+
+## 2026-09-30 · /9-mejora-continua · supervisor pre-entrega
+
+Antes de material al cliente, **`/9-mejora-continua Revisar {ID}`** audita el paquete en **espejo** (`operacion/mejora-continua/entrega-{ID}/`) como versión final. Cambios solo tras **`Acepto`**; reglas reutilizables en **`_skills-copia/`**, nunca en `.cursor/skills/` salvo **`Promover skills Acepto`**. Pasar al expediente real solo con **`Aplicar expediente {ID} Acepto`**. Una invocación = una acción (Revisar, Acepto, Promover, Limpiar).
+
+Revisión web obligatoria según **`estandares-revision-web.md`**: principios visuales, convenciones, técnica demo, a11y/usabilidad, responsive, contenido ojo del cliente (referencias: estándares UX en ESDESIGN, Contentsquare, Squarespace — ideas en esa skill, no checklist legal WCAG).
+
+**Salida Revisar:** veredicto + D1–D6 + ítems numerados **en texto en el chat**; estado en `09-meta-entrega.json`. **No** crear `REVISION-SUPERVISOR.md` ni `PROPUESTA-CAMBIOS.md` salvo que el usuario lo pida explícitamente.
+
+**Doble capa en el chat:** cada hallazgo técnico (nav, skip link, responsive, `href="#"`, a11y, wrap, etc.) va con **explicación sencilla para no técnicos** («qué pasa en la práctica») además del nombre técnico para aprender. Glosario en `skills/9-mejora-continua/reference.md`.
