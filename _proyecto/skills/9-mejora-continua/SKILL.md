@@ -117,7 +117,7 @@ No aplicar cambios en Revisar.
 
 - Cualquier hallazgo **bloqueante** en D1–D6 (véase `estandares-revision-web.md`).
 - Copy que cite investigación, agregadores o incertidumbre de campaña en UI.
-- Datos no verificados como hechos (precio, horario, terraza, etc.).
+- Datos no verificados como hechos (precio tabular, horario presentado como definitivo sin aviso, **terraza solo si no consta en brief/fuentes**).
 - IDs internos, alcance VAL o metadatos Excel en material cliente.
 - Enlace compartible localhost o roto en pieza marcada como entrega.
 - Navegación o CTAs que obligan a «aprender» la web; responsive roto en móvil para tareas clave (carta, teléfono, mapa).
