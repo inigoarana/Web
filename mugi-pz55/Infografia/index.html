@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mugi - Valor de una web actual</title>
+  <style>
+    :root {
+      --ink: #1c1917;
+      --muted: #57534e;
+      --accent: #9a3412;
+      --accent2: #0f766e;
+      --bg: #faf7f2;
+      --card: #fff;
+      --line: #e7e5e4;
+      --green: #059669;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+      font-size: 10.5pt;
+    }
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      body { background: #fff; }
+      .sheet { box-shadow: none; max-width: none; }
+    }
+    .sheet {
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 14mm 16mm 16mm;
+      background: var(--card);
+      box-shadow: 0 4px 28px rgba(0,0,0,0.07);
+    }
+    header {
+      border-bottom: 4px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+    h1 { font-size: 22pt; font-weight: 800; letter-spacing: -0.02em; }
+    .sub { color: var(--muted); font-size: 10pt; margin-top: 4px; }
+    h2 {
+      font-size: 11pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin: 16px 0 8px;
+    }
+    .benefits-global {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    @media (max-width: 520px) { .benefits-global { grid-template-columns: 1fr; } }
+    .benefit-box {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      border-left: 4px solid var(--accent);
+      padding: 10px 12px;
+      border-radius: 0 8px 8px 0;
+      font-size: 9.5pt;
+    }
+    .impact {
+      margin: 14px 0;
+      padding: 14px;
+      border-radius: 10px;
+      background: linear-gradient(120deg, #7c2d12, #0f766e);
+      color: #fff;
+    }
+    .impact h2 { color: #fcd34d; margin: 0 0 6px; }
+    .impact p { font-size: 9.5pt; opacity: 0.95; margin: 0; }
+    .channels {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px;
+      font-size: 9pt;
+    }
+    .pill {
+      padding: 5px 11px; border-radius: 999px;
+      background: var(--bg); border: 1px solid var(--line);
+    }
+    .pill.web { background: #fff7ed; border-color: var(--accent); font-weight: 700; color: var(--accent); }
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 6px;
+      text-align: center;
+      font-size: 9pt;
+      margin-bottom: 14px;
+    }
+    .flow .step {
+      padding: 10px 6px;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+    .flow .arr { align-self: center; color: var(--accent); font-size: 16pt; font-weight: 700; }
+    .flow .ico { font-size: 20pt; display: block; margin-bottom: 4px; }
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 560px) { .help-grid { grid-template-columns: 1fr; } }
+    .help-item {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+    }
+    .help-item strong {
+      display: block;
+      color: var(--accent2);
+      font-size: 10pt;
+      margin-bottom: 4px;
+    }
+    .help-item p { font-size: 9pt; color: var(--muted); }
+    .help-item.highlight {
+      grid-column: 1 / -1;
+      background: linear-gradient(90deg, #ecfdf5, #f0fdf4);
+      border-color: var(--green);
+    }
+    .foot {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      font-size: 8pt;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header>
+      <h1>Mugi</h1>
+      <p class="sub">Licenciado Poza 55 - Bilbao (Indautxu)</p>
+    </header>
+
+    <h2>Que aporta una web</h2>
+    <div class="benefits-global">
+      <div class="benefit-box">
+        <strong>Un enlace fiable en el movil</strong> - direccion, telefono y propuesta de barra legibles antes de ir a Pozas.
+      </div>
+      <div class="benefit-box">
+        <strong>Confianza al buscar el nombre</strong> - quien escribe "Mugi" o "barmugi" encuentra vuestra tasca, no contenido ajeno en el dominio antiguo.
+      </div>
+    </div>
+
+    <section class="impact">
+      <h2>Impacto en vuestro local</h2>
+      <p>
+        Hoy la informacion util esta repartida entre Instagram, guias y directorios; el dominio historico <strong>barmugi.com</strong> no refleja el local.
+        Una vitrina nueva <strong>centraliza</strong> pintxos, brasa, jamon a cuchillo, horario y mapa en Licenciado Poza - con el <strong>944 413 016</strong> como reserva oficial.
+        En la practica: menos dudas de horario, un enlace que podeis pegar en bio o WhatsApp y una carta orientativa sin depender solo de agregadores.
+      </p>
+    </section>
+
+    <h2>Como encaja con lo que ya teneis</h2>
+    <div class="channels">
+      <span class="pill">Google / Maps</span>
+      <span class="pill">Instagram</span>
+      <span class="pill">Guias / prensa</span>
+      <span class="pill web">+ Web propia</span>
+    </div>
+    <div class="flow">
+      <div class="step"><span class="ico"></span>Buscan "Mugi Pozas"</div>
+      <div class="arr">-></div>
+      <div class="step"><span class="ico"></span>Web confirma barra, horario y telefono</div>
+      <div class="arr">-></div>
+      <div class="step"><span class="ico"></span>Vienen o reservan por telefono</div>
+    </div>
+
+    <h2>Como os ayuda la propuesta (demo "Informativa")</h2>
+    <div class="help-grid">
+      <div class="help-item">
+        <strong>Encontraros en Pozas</strong>
+        <p>Mapa y copy claro en Licenciado Poza 55; aviso honesto sobre el dominio antiguo.</p>
+      </div>
+      <div class="help-item">
+        <strong>Propuesta en barra</strong>
+        <p>Pintxos, brasa de carbon y jamon cortado a cuchillo visibles en movil, sin listado de precios hasta validar.</p>
+      </div>
+      <div class="help-item">
+        <strong>Horario de confianza</strong>
+        <p>Tabla acordada con vosotros; aviso donde falte dato confirmado (p. ej. sabado).</p>
+      </div>
+      <div class="help-item">
+        <strong>Grupos y reserva</strong>
+        <p>Bloque para mesas y grupos con CTA a llamar; formulario simulado con confirmacion telefonica.</p>
+      </div>
+      <div class="help-item highlight">
+        <strong>Telefono siempre visible</strong>
+        <p>944 413 016 en cabecera y contacto; Instagram como canal social, no sustituto de la web.</p>
+      </div>
+    </div>
+
+    <p class="foot">
+      Complementa Google, Instagram y el telefono - No sustituye la barra ni la cocina - Sin pedidos online en esta propuesta - Maqueta con imagenes de referencia
+    </p>
+  </article>
+</body>
+</html>
