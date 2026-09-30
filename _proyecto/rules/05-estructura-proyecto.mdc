@@ -1,0 +1,26 @@
+---
+description: Jerarquía canónica del repo Cursor_Web; fuente en rules/ y skills/, no duplicar en .cursor.
+alwaysApply: true
+---
+
+# Estructura del proyecto
+
+**Raíz `Cursor_Web/`** (orden habitual):
+
+1. **`rules/`** — reglas del agente (`.mdc`). Editar aquí; no mantener copias paralelas.
+2. **`skills/`** — una carpeta por skill (`SKILL.md` y anexos de esa etapa).
+3. **`config/`** — `proyecto.json`, esquema Excel, publicación.
+4. **`operacion/`** — protocolo, estado, feedback, investigación, plantillas transversales.
+5. **`expedientes/`** — un negocio por carpeta `NNNN_Nombre`. **Producto visible:** subcarpetas **`demos/`** (A/B/C + comparador) e **`infografia/`** (`index.html`). El resto de archivos de etapas (`01-*` … `07-*`, JSON, notas) permanecen en la **raíz** del expediente.
+6. **`scripts/`** — helpers PowerShell/Python.
+7. **`Registro_Negocios.xlsx`** — único libro operativo.
+
+**`.cursor/`** — solo enlaces al IDE (junctions a `rules/` y `skills/`) más `README.md`. **No** editar contenido ahí; **no** crear `catalogo/` ni otras carpetas duplicadas.
+
+**Catálogo EXT:** vive en `skills/3-comercial-innovador/servicios-opcionales.md` (solo etapa innovador). No recrear `catalogo/` en la raíz.
+
+**Auxiliares por skill:** material que use una sola etapa (catálogos, plantillas específicas) va **dentro** de su carpeta en `skills/`, salvo recursos compartidos explícitos en `operacion/` (p. ej. `plantillas-demo/` para `/4-demo`).
+
+**Basura temporal:** lecturas `_leer*.json`, payloads `cambios-excel-*.json` (salvo `cambios-excel.json`), staging `_publish-temp/` y `.cursor-*.xlsx` en raíz. Eliminar con **`/X-Eliminar_Basura`** si tienen **más de 24 h** (`scripts/eliminar_basura.ps1`). No acumular en git.
+
+**`/X-Eliminar_Basura` — jamás borrar:** todo **`expedientes/`** (demos, infografías, etapas, `versiones/`), **`Registro_Negocios.xlsx`**, **`skills/`**, **`rules/`**, **`config/`**, **`scripts/`**, **`README.md`**, **`ACTUALIZAR_EN_CURSOR.md`**, núcleo de **`operacion/`** (`feedback.md`, protocolo, registro Excel, evidencia, alcance, resumen, `estado.json`, `activo.json`, mapa expedientes, token GitHub, `plantillas-demo/`, lotes e índice de **`investigacion/`**). Solo basura temporal acotada (p. ej. `_leer*.json`, `cambios-excel-*`, `_publish-temp/`); el script aborta fuera de la lista permitida.
